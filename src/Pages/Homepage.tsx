@@ -29,12 +29,6 @@ export default function Homepage() {
       >
         <Header />
         <Box width={'95%'}>
-        <Flex width={'100%'} alignItems={'center'} justifyContent={'center'} mt={7} mb={-10}>
-          <Image src="/coin.png" w={"35px"} />
-          <Text fontWeight={400} fontSize={"24px"} color={"#000807"}>
-            45,000
-          </Text>
-        </Flex>
         <Box display={"flex"} alignItems={"center"} mt={6}>
           <Flex
             gap={"60px"}
