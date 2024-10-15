@@ -8,7 +8,7 @@ export default function Homepage() {
       display={"flex"}
       flexDirection={"column"}
       bgImage={"/background.png"}
-      bgColor={"#EFD0CA"}
+      bgColor={"#EB8A90"}
       bgRepeat={"no-repeat"}
       bgPosition={"center"}
       bgSize={"cover"}
