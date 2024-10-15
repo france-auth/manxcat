@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Image, Text, Input } from "@chakra-ui/react";
 import Header from "../components/Header";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 export default function PlaceBet() {
   return (
     <Box

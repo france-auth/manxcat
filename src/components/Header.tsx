@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
     return(
-        <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'} width={'85%'}>
+        <Box display={'flex'} gap={2} justifyContent={'space-between'} alignItems={'center'} width={'85%'}>
             <Box
             display={'flex'}
             flexDirection={'column'}
