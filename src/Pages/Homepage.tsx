@@ -35,12 +35,13 @@ export default function Homepage() {
             45,000
           </Text>
         </Flex>
-        <Box display={"flex"} alignItems={"center"}>
+        <Box display={"flex"} alignItems={"center"} mt={6}>
           <Flex
             gap={"60px"}
             flexDirection={"column"}
             w={"50px"}
             height={"314px"}
+            zIndex={1}
           >
             <Box
               color={"#000807"}
@@ -90,20 +91,13 @@ export default function Homepage() {
               <Text>SPIN</Text>
             </Box>
           </Flex>
-          <Flex width={"359px"} h={"380px"}>
+          <Flex width={"359px"} h={"380px"} alignItems={'center'} justifyContent={'center'} flexDirection={'column'} position={'relative'}>
             <Image
-              src="/sm-cat.png"
-              w={"359px"}
-              h={"380px"}
-              top={"201px"}
-              left={"36px"}
-            />
-            <Image
-              src="/blur-cat.png"
-              w={"295px"}
-              h={"312px"}
-              top={"235px"}
-              left={"68px"}
+              src="/manx.png"
+              w={"100%"}
+              position={'absolute'}
+              left={4}
+              top={5}
             />
           </Flex>
 
@@ -112,6 +106,7 @@ export default function Homepage() {
             flexDirection={"column"}
             w={"50px"}
             height={"314px"}
+            zIndex={1}
           >
             <Box
               color={"#000807"}
@@ -163,7 +158,7 @@ export default function Homepage() {
         </Box>
         </Box>
         <Box bgColor={'#EFD0CA80'} alignItems={'center'} display={'flex'}
-        flexDirection={'column'} w={'100%'} p={'10px'}>
+        flexDirection={'column'} w={'100%'} >
             <Text fontSize={'16px'} fontWeight={700}>
                 AVAILABLE tickets
             </Text>
