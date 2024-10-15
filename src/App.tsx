@@ -20,6 +20,7 @@ function BackButtonHandler() {
 
   useEffect(() => {
     // Initialize the BackButton from the TWA SDK
+    WebApp.expand()
     const backButton = WebApp.BackButton;
 
     // Check the current route and show or hide the back button accordingly
