@@ -35,7 +35,7 @@ export default function Homepage() {
             flexDirection={"column"}
             w={"50px"}
             height={"314px"}
-            zIndex={1}
+            zIndex={10}
           >
             <Box
               color={"#000807"}
@@ -85,12 +85,13 @@ export default function Homepage() {
               <Text>SPIN</Text>
             </Box>
           </Flex>
-          <Flex width={"359px"} h={"380px"} alignItems={'center'} justifyContent={'center'} flexDirection={'column'} position={'relative'}>
+          <Flex width={"340px"} h={"300px"} alignItems={'center'} justifyContent={'center'} flexDirection={'column'} position={'relative'}>
             <Image
               src="/manx.png"
               w={"100%"}
               position={'absolute'}
               left={4}
+              right={4}
               top={5}
             />
           </Flex>
@@ -100,7 +101,7 @@ export default function Homepage() {
             flexDirection={"column"}
             w={"50px"}
             height={"314px"}
-            zIndex={1}
+            zIndex={10}
           >
             <Box
               color={"#000807"}
