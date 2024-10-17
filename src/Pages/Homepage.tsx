@@ -28,7 +28,7 @@ export default function Homepage() {
         mt={5}
       >
         <Header />
-        <Box width={'95%'}>
+        <Box display={"flex"} alignItems={"center"} justifyContent={"center"}>
         <Box display={"flex"} alignItems={"center"} mt={6}>
           <Flex
             gap={"60px"}
