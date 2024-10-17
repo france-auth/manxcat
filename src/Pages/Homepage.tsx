@@ -12,10 +12,10 @@ export default function Homepage() {
       bgRepeat={"no-repeat"}
       bgPosition={"center"}
       bgSize={"cover"}
-      width={"100vw"}
       minHeight={"100vh"}
       alignItems={"center"}
       py={2}
+      px={2}
     >
       <Flex
         width={"100%"}
