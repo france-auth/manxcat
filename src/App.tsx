@@ -14,6 +14,9 @@ import Lobby from "./Pages/Lobby";
 import LobbyRules from "./Pages/LobbyRule";
 import PlaceBet from "./Pages/PlaceBet";
 import WebApp from "@twa-dev/sdk";
+import Tasks from "./Pages/Tasks";
+import Apply from "./Pages/Apply";
+
 
 function BackButtonHandler() {
   const location = useLocation(); // Use React Router's useLocation to track route changes
@@ -53,6 +56,8 @@ function App() {
         <Route path="/lobby" element={<Lobby />} />
         <Route path="/stake" element={<PlaceBet />} />
         <Route path="/rules" element={<LobbyRules />} />
+        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/apply" element={<Apply />} />
       </Routes>
     </Box>
   );
