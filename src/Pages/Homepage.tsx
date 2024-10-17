@@ -90,8 +90,6 @@ export default function Homepage() {
               src="/manx.png"
               w={"100%"}
               position={'absolute'}
-              left={4}
-              right={4}
               top={5}
             />
           </Flex>
