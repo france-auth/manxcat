@@ -42,7 +42,7 @@ export const TaskList: TaskList[] = [
   },
   {
     ids: 1,
-    title: "launch pokemonball miniappx"
+    title: "launch pokemonball miniapp"
   },
   {
     ids: 1,

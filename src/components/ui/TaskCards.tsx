@@ -9,11 +9,12 @@ interface ButtonProps {
 }
 const TaskButton: React.FC<ButtonProps> = ({name, onClick, className}) => {
   return (
-    <div className={`border-[3px] border-solid border-[#000807] rounded-full ${className} w-28`}
+    <div className={`border-[3px] border-solid border-[#000807] rounded-full z-50 ${className}`}
     >
       <button
+      type="button"
         onClick={onClick}
-        className="text-sm font-bold w-28 flex items-center justify-center py-[6px]">
+        className="text-xs font-bold w-full flex items-center justify-center py-[6px] xs:px-3 xx:px-4">
         {name}
       </button>
     </div>
@@ -72,16 +73,16 @@ const TaskCards = () => {
               ? "opacity-40" 
               : ""}`
           }>
-            <div className="flex space-x-3">
-              <div className="p-2 bg-[#EFD0CA] rounded-full justify-center">
+            <div className="flex gap-2">
+              <div className="flex flex-col p-2 bg-[#EFD0CA] rounded-full justify-center">
                 <img 
                   src="/wallet.png" 
                   alt="wallet" 
-                  className="w-8 h-8 justify-start"
+                  className="xs:w-6 xs:h-6 w-8 h-6"
                 />
               </div>
-              <div className="">
-                <h1 className="font-bold text-[15px] uppercase">
+              <div className="flex flex-col">
+                <h1 className="font-bold xs:text-xs uppercase text-wrap">
                   {title}
                 </h1>
                 <div className="text-xs flex gap-2">
