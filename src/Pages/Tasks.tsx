@@ -1,4 +1,6 @@
 import Button from "../components/ui/Button"
+import TaskCards from "../components/ui/TaskCards"
+
 
 const Tasks = () => {
   return (
@@ -42,16 +44,18 @@ const Tasks = () => {
           </h1>
           <div className="cards flex flex-col items-center px-7 py-3 space-y-5">
             <div className="flex space-x-3">
-              <div className="p-2 bg-[#EFD0CA] rounded-full">
+              <div className="p-2 flex bg-[#EFD0CA] rounded-full justify-center items-center">
                 <img 
                   src="/wallet.png" 
                   alt="wallet" 
-                  className="w-10 h-8 justify-start"
+                  className="w-10 h-8 justify-center"
                 />
               </div>
               <div className="flex flex-col justify-end">
                 <h1 className="font-extrabold text-sm">UPLOAD TASK</h1>
-                <p className="text-xs">Pass a background review, pay in USDT and your task will be published</p>
+                <p className="text-xs">
+                  Pass a background review, pay in USDT and your task will be published
+                </p>
               </div>
             </div>
             <Button name="APPLY" />
@@ -62,8 +66,9 @@ const Tasks = () => {
             <h1 className="text-center font-extrabold text-[25px] leading-8">
               TASKS
             </h1>
-            <p>5 / 30 completed</p>
+            <p className="text-xs">5 / 30 completed</p>
             </div>
+            <TaskCards />
         </div>
       </div>
     </main>
