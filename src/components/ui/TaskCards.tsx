@@ -78,7 +78,7 @@ const TaskCards = () => {
                 <img 
                   src="/wallet.png" 
                   alt="wallet" 
-                  className="xs:w-6 xs:h-6 w-8 h-6"
+                  className="xs:w-6 xs:h-6 xr:w-8 xr:h-7"
                 />
               </div>
               <div className="flex flex-col">
