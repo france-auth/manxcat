@@ -88,7 +88,7 @@ export default function Homepage() {
           <Flex width={"340px"} h={"300px"} alignItems={'center'} justifyContent={'center'} flexDirection={'column'} position={'relative'}>
             <Image
               src="/manx.png"
-              w={"100%"}
+              w={"95%"}
               position={'absolute'}
               top={5}
             />
