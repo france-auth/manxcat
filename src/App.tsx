@@ -59,9 +59,9 @@ function App() {
         <Route path="/stake" element={<PlaceBet />} />
         <Route path="/rules" element={<LobbyRules />} />
         <Route path="/tasks" element={<Tasks />} />
-        <Route path="/apply" element={<Apply />} />
-        <Route path="/review" element={<ReviewTask />} />
-        <Route path="/review/approved" element={<ApproveTask />} />
+        <Route path="/tasks/apply" element={<Apply />} />
+        <Route path="tasks/apply/review" element={<ReviewTask />} />
+        <Route path="tasks/apply/review/approved" element={<ApproveTask />} />
       </Routes>
     </Box>
   );
