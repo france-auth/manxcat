@@ -18,6 +18,7 @@ import Tasks from "./Pages/Tasks";
 import Apply from "./Pages/Apply";
 import ReviewTask from "./Pages/ReviewTask";
 import ApproveTask from "./Pages/ApproveTask";
+import Invites from "./Pages/Invutes";
 
 
 function BackButtonHandler() {
@@ -61,7 +62,8 @@ function App() {
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/apply" element={<Apply />} />
         <Route path="/apply/review" element={<ReviewTask />} />
-        <Route path="apply/review/approved" element={<ApproveTask />} />
+        <Route path="/apply/review/approved" element={<ApproveTask />} />
+        <Route path="/invites" element={<Invites />} />
       </Routes>
     </Box>
   );
