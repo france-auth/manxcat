@@ -11,7 +11,7 @@ const Tasks = () => {
           src="/cats/task-cat.png"
           className="relative w-95%"
         />
-        <div className="absolute xs:top-[200px] xx:top-[240px] xr:top-[270px]">
+        <div className="absolute xs:top-[200px] xx:top-[240px] xr:top-[320px]">
           <h1 className="text-center font-extrabold text-[32px] mb-2">
             TASKS TO EARN
           </h1>
