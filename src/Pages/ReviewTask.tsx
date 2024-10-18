@@ -5,8 +5,8 @@ const ReviewTask = () => {
     <main className="apply_page-style">
       <div className="flex flex-col items-center w-full">
         <Header />
-        <div className="flex flex-col mt-12 items-center">
-          <h1 className="font-extrabold text-3xl">
+        <div className="flex flex-col mt-12 items-center px-5">
+          <h1 className="font-extrabold text-3xl text-center">
             REVIEWING YOUR TASK
           </h1>
           <p className="text-xs xr:text-sm text-center">
