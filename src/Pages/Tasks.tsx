@@ -58,7 +58,7 @@ const Tasks = () => {
                 </p>
               </div>
             </div>
-            <Button name="APPLY" link="apply" />
+            <Button name="APPLY" link="/apply" />
           </div>
         </div>
         <div className="flex flex-col items-center mt-8">
