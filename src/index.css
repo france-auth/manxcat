@@ -25,6 +25,9 @@
   .page-style {
     @apply flex flex-col items-center min-h-screen bg-custom-image w-full p-5
   }
+  .apply_page-style {
+    @apply flex flex-col min-h-screen bg-custom-image w-full py-5
+  }
   .cards {
     @apply w-full border border-solid border-[#000807] bg-[#EFD0CA80] rounded-xl
   }
