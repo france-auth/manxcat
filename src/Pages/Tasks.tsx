@@ -20,7 +20,7 @@ const Tasks = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col mt-3">
         <div className="flex flex-col items-center px-7 py-3 cards space-y-5">
           <p className="uppercase font-semibold text-xs">
             complete every 3 tasks to get a ticket
