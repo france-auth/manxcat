@@ -11,7 +11,7 @@ const Tasks = () => {
           src="/cats/task-cat.png"
           className="relative w-95%"
         />
-        <div className="absolute xs:top-[200px] xx:top-[240px] xr:top-[320px]">
+        <div className="absolute xs:top-[200px] xx:top-[250px] xr:top-[330px]">
           <h1 className="text-center font-extrabold text-[32px] mb-2">
             TASKS TO EARN
           </h1>
@@ -20,7 +20,7 @@ const Tasks = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col mt-3">
         <div className="flex flex-col items-center px-7 py-3 cards space-y-5">
           <p className="uppercase font-semibold text-xs">
             complete every 3 tasks to get a ticket
