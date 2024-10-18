@@ -22,16 +22,16 @@ export default function Header() {
                 </Link>
             </Box>
         <Flex gap={2}>
-            <Flex alignItems={'center'} gap={3} h={'44px'} bg={'#EFD0CA'} borderRadius={'25px'} p={'0px 10px'}>
+            <Flex alignItems={'center'} gap={3} h={'40px'} bg={'#EFD0CA'} borderRadius={'25px'} p={'0px 10px'}>
                 <Image src="/coin.png" w={'15px'}/>
-                <Text fontSize={'15px'} color={"#000807"}>
+                <Text fontSize={'12px'} color={"#000807"}>
                     45,000
                 </Text>
                 <Icon as={FaPlus} w={'20px'} color={'#000807'}/>
             </Flex>
-            <Flex alignItems={'center'} gap={3} h={'44px'} bg={'#EFD0CA'} borderRadius={'25px'} p={'0px 10px'}>
+            <Flex alignItems={'center'} gap={3} h={'40px'} bg={'#EFD0CA'} borderRadius={'25px'} p={'0px 10px'}>
                 <Image src="/coin.png" w={'20px'}/>
-                <Text fontSize={'15px'} color={"#000807"}>
+                <Text fontSize={'12px'} color={"#000807"}>
                     45,000
                 </Text>
                 <Icon as={FaPlus} color={'#000807'}/>
