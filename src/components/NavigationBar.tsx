@@ -42,7 +42,7 @@ const NavigationBar: React.FC = () => {
             bottom={0}
             right={0}
             zIndex={80}
-           >
+        >
                 <NavItem 
                     icon={
                         <Image src="/home.png"/>
