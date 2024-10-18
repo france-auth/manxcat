@@ -16,6 +16,8 @@ import PlaceBet from "./Pages/PlaceBet";
 import WebApp from "@twa-dev/sdk";
 import Tasks from "./Pages/Tasks";
 import Apply from "./Pages/Apply";
+import ReviewTask from "./Pages/ReviewTask";
+import ApproveTask from "./Pages/ApproveTask";
 
 
 function BackButtonHandler() {
@@ -58,6 +60,8 @@ function App() {
         <Route path="/rules" element={<LobbyRules />} />
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/apply" element={<Apply />} />
+        <Route path="/review" element={<ReviewTask />} />
+        <Route path="/review/approved" element={<ApproveTask />} />
       </Routes>
     </Box>
   );
