@@ -12,10 +12,10 @@ export default function Homepage() {
       bgRepeat={"no-repeat"}
       bgPosition={"center"}
       bgSize={"cover"}
-      width={"100vw"}
       minHeight={"100vh"}
       alignItems={"center"}
       py={2}
+      px={2}
     >
       <Flex
         width={"100%"}
@@ -28,14 +28,14 @@ export default function Homepage() {
         mt={5}
       >
         <Header />
-        <Box width={'95%'}>
+        <Box display={"flex"} alignItems={"center"} justifyContent={"center"}>
         <Box display={"flex"} alignItems={"center"} mt={6}>
           <Flex
             gap={"60px"}
             flexDirection={"column"}
             w={"50px"}
             height={"314px"}
-            zIndex={1}
+            zIndex={10}
           >
             <Box
               color={"#000807"}
@@ -85,12 +85,11 @@ export default function Homepage() {
               <Text>SPIN</Text>
             </Box>
           </Flex>
-          <Flex width={"359px"} h={"380px"} alignItems={'center'} justifyContent={'center'} flexDirection={'column'} position={'relative'}>
+          <Flex width={"260px"} h={"300px"} alignItems={'center'} justifyContent={'center'} flexDirection={'column'} position={'relative'}>
             <Image
               src="/manx.png"
-              w={"100%"}
+              w={"95%"}
               position={'absolute'}
-              left={4}
               top={5}
             />
           </Flex>
@@ -100,7 +99,7 @@ export default function Homepage() {
             flexDirection={"column"}
             w={"50px"}
             height={"314px"}
-            zIndex={1}
+            zIndex={10}
           >
             <Box
               color={"#000807"}
