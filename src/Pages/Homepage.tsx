@@ -85,7 +85,7 @@ export default function Homepage() {
               <Text>SPIN</Text>
             </Box>
           </Flex>
-          <Flex width={"340px"} h={"300px"} alignItems={'center'} justifyContent={'center'} flexDirection={'column'} position={'relative'}>
+          <Flex width={"260px"} h={"300px"} alignItems={'center'} justifyContent={'center'} flexDirection={'column'} position={'relative'}>
             <Image
               src="/manx.png"
               w={"95%"}
