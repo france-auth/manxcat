@@ -7,7 +7,7 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ name, onClick, className, link }) => {
+const ButtoN: React.FC<ButtonProps> = ({ name, onClick, className, link }) => {
   return (
     <div
       className={`flex items-center justify-center border-[3px] border-solid border-[#000807] cursor-pointer rounded-full ${className} bg-[#EFD0CA] w-60`}
@@ -35,4 +35,4 @@ const Button: React.FC<ButtonProps> = ({ name, onClick, className, link }) => {
   );
 };
 
-export default Button;
+export default ButtoN;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "../components/ui/Button";
+import ButtoN from "../components/ui/Button";
 import { friends } from "../data";
 
 const Invites = () => {
@@ -24,7 +24,7 @@ const Invites = () => {
         </div>
         <div className="cards py-3 px-6 flex flex-col items-center mt-4">
           <h1 className="font-bold text-2xl mb-5">{invites} INVITED</h1>
-          <Button name="CLAIM REWARDS" />
+          <ButtoN name="CLAIM REWARDS" link={"/claim-rewards"} />
         </div>
         <div className="flex justify-center items-center mt-4 p-4 bg-[#EFD0CA80] w-screen mb-3">
           <h1 className="font-extrabold text-xl text-center">

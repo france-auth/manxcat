@@ -160,7 +160,7 @@ export default function Homepage() {
             >
                 01
             </Text>
-            <Button mb={3} bgColor={'#EFD0CA'} border={'5px solid #000807'} borderRadius={'500px'} w={'60%'} h={'36px'} p={'15px 10px'} gap={4} fontSize={'12px'} fontWeight={'400'}>
+            <Button mb={3} bgColor={'#EFD0CA'} border={'4px solid #000807'} borderRadius={'500px'} w={'60%'} h={'36px'} p={'14px 10px'} gap={4} fontSize={'12px'} fontWeight={'400'}>
                 PLAY NOW 
                 <Image src="/play.png"/>
             </Button>
