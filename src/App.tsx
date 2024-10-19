@@ -19,6 +19,9 @@ import Apply from "./Pages/Apply";
 import ReviewTask from "./Pages/ReviewTask";
 import ApproveTask from "./Pages/ApproveTask";
 import Invites from "./Pages/Invites";
+import ClaimRewards from "./Pages/ClaimRewards";
+import Wallet from "./Pages/Wallet";
+import Spin from "./Pages/Spin";
 
 
 function BackButtonHandler() {
@@ -64,6 +67,9 @@ function App() {
         <Route path="review" element={<ReviewTask />} />
         <Route path="/approved" element={<ApproveTask />} />
         <Route path="/friends" element={<Invites />} />
+        <Route path="/claim-rewards" element={<ClaimRewards />} />
+        <Route path="/spin" element={<Spin />} />
+        <Route path="/wallet" element={<Wallet />} />
       </Routes>
     </Box>
   );

@@ -34,6 +34,9 @@
   .cards {
     @apply w-full border border-solid border-[#000807] bg-[#EFD0CA80] rounded-xl
   }
+  .wallet-cards {
+    @apply w-full border-[3px] border-solid border-[#000807] rounded-xl bg-[#EFD0CA]
+  }
   .circle-span {
     @apply rounded-full border-[0.4px] border-solid border-black w-[9px] h-[9px] bg-[#D9D9D9]
   }
