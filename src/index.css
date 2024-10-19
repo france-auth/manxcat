@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -11,7 +11,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
+
+  /* In your main CSS file or global CSS in _app.js (for Next.js) */
+
 
 @tailwind base;
 @tailwind components;
@@ -41,4 +44,21 @@
 
 * {
   box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-stretch: 100%;
+  font-variation-settings: normal;
+  font-feature-settings: "liga", "calt";
+}
+
+.my-font {
+  font-family: 'Inter', sans-serif;
+  font-feature-settings: "liga", "calt";
+  font-variation-settings: normal;
 }
