@@ -2,6 +2,7 @@ import { Button, Image } from "@chakra-ui/react"
 import ButtoN from "../components/ui/Button"
 import { useState } from "react"
 import ChooseExchange from "./ChooseExchange";
+import { Link } from "react-router-dom";
 
 interface Operations {
   name: string
@@ -47,7 +48,7 @@ const balances = [
 
 const Wallet = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [isConnected] = useState<boolean>(false);
+  const [isConnected] = useState<boolean>(false); // i removed 'setIsConnected to avoid errors because i didn't need the function'
   const toggle = () => setIsOpen((isOpen) => !isOpen)
   //const toggleConnect = () => setIsConnected((isOpen) => !isOpen)
   const userWallet = "YQXH........AQ8";
@@ -153,7 +154,13 @@ const Wallet = () => {
           <div className="w-full">
             <div className="flex gap-2 justify-center">
               {operations.map(({name}, id) => (
-                <div key={id} className="flex flex-col items-center wallet-cards p-4">
+                <Link 
+                  to={id === 0 ? "/buy" 
+                    : id === 1 ? "/withdraw" 
+                    : "/swap"} 
+                    className="w-full"
+                >
+                  <div key={id} className="flex flex-col items-center wallet-cards p-4">
                   <img 
                     src={id === 0 
                       ? "/wallets/buy.png" 
@@ -161,10 +168,11 @@ const Wallet = () => {
                       ? "/wallets/withdraw.png" 
                       : "/wallets/swap.png"} 
                     alt={name} 
-                    className="bg-transparent "
+                    className="bg-transparent"
                   />
                   <p className="font-extrabold text-xs">{name}</p>
                 </div>
+                </Link>
               ))}
             </div>
           </div>

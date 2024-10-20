@@ -22,6 +22,9 @@ import Invites from "./Pages/Invites";
 import ClaimRewards from "./Pages/ClaimRewards";
 import Wallet from "./Pages/Wallet";
 import Spin from "./Pages/Spin";
+import BuyCoin from "./Pages/BuyCoin";
+import WithdrawCoin from "./Pages/WithdrawCoin";
+import SwapCoin from "./Pages/SwapCoin";
 
 
 function BackButtonHandler() {
@@ -70,6 +73,9 @@ function App() {
         <Route path="/claim-rewards" element={<ClaimRewards />} />
         <Route path="/spin" element={<Spin />} />
         <Route path="/wallet" element={<Wallet />} />
+        <Route path="/buy" element={<BuyCoin />} />
+        <Route path="/withdraw" element={<WithdrawCoin />} />
+        <Route path="/swap" element={<SwapCoin />} />
       </Routes>
     </Box>
   );
