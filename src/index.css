@@ -37,6 +37,12 @@
   .wallet-cards {
     @apply w-full border-[3px] border-solid border-[#000807] rounded-xl bg-[#EFD0CA]
   }
+  .withdraw-bg {
+    @apply w-full bg-[#EB8A90] rounded-lg
+  }
+  .swap-bg {
+    @apply w-full bg-[#EB8A9054] rounded-lg
+  }
   .buy-cards {
     @apply w-full border-[3px] border-solid border-[#000807] rounded-xl
   }
