@@ -34,6 +34,12 @@
   .cards {
     @apply w-full border border-solid border-[#000807] bg-[#EFD0CA80] rounded-xl
   }
+  .daily-cards_container {
+    @apply w-full border border-solid border-[#000807] rounded-xl
+  }
+  .daily-cards {
+    @apply w-full border-[1.5px] border-dotted border-[#000807] bg-[#EFD0CA] rounded-xl
+  }
   .wallet-cards {
     @apply w-full border-[3px] border-solid border-[#000807] rounded-xl bg-[#EFD0CA]
   }
