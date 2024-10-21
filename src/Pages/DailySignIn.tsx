@@ -117,7 +117,7 @@ const DailySignIn = () => {
               ))}
             </div>
           </div>
-          <ButtoN name="CONTINUE" className="mt-12" />
+          <ButtoN name="CONTINUE" className="xs:mt-12 xx:mt-20" link={"/"} />
         </div>
       </div>
     </main>

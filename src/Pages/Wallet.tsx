@@ -160,7 +160,7 @@ const Wallet = () => {
                     : "/swap"} 
                     className="w-full"
                 >
-                  <div key={id} className="flex flex-col items-center wallet-cards p-4">
+                  <div key={id} className="grid wallet-cards py-4 justify-center">
                   <img 
                     src={id === 0 
                       ? "/wallets/buy.png" 
@@ -168,9 +168,9 @@ const Wallet = () => {
                       ? "/wallets/withdraw.png" 
                       : "/wallets/swap.png"} 
                     alt={name} 
-                    className="bg-transparent"
+                    className="bg-transparent place-self-center"
                   />
-                  <p className="font-extrabold text-xs">{name}</p>
+                  <p className="font-extrabold text-xs place-self-center">{name}</p>
                 </div>
                 </Link>
               ))}
