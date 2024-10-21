@@ -25,6 +25,8 @@ import Spin from "./Pages/Spin";
 import BuyCoin from "./Pages/BuyCoin";
 import WithdrawCoin from "./Pages/WithdrawCoin";
 import SwapCoin from "./Pages/SwapCoin";
+import DailySignIn from "./Pages/DailySignIn";
+import Shop from "./Pages/Shop";
 
 
 function BackButtonHandler() {
@@ -76,6 +78,8 @@ function App() {
         <Route path="/buy" element={<BuyCoin />} />
         <Route path="/withdraw" element={<WithdrawCoin />} />
         <Route path="/swap" element={<SwapCoin />} />
+        <Route path="/daily-signin" element={<DailySignIn />} />
+        <Route path="/shop" element={<Shop />} />
       </Routes>
     </Box>
   );

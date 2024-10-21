@@ -64,10 +64,10 @@ export default function Homepage() {
               gap={"2px"}
               py={"5px"}
             >
-                <Link to={'/lobby'}>
-              <Image src="/console.png" />
-              <Text>GAME</Text>
-                </Link>
+              <Link to={'/lobby'}>
+                <Image src="/console.png" />
+                <Text>GAME</Text>
+              </Link>
             </Box>
             <Box
               color={"#000807"}
@@ -114,8 +114,10 @@ export default function Homepage() {
               py={"5px"}
               textAlign={"center"}
             >
-              <Image src="/calendar.png" />
-              <Text>DAILY SIGNIN</Text>
+              <Link to={"/daily-signin"} className="flex flex-col items-center">
+                <Image src="/calendar.png" />
+                <Text>DAILY SIGNIN</Text>
+              </Link>
             </Box>
             <Box
               color={"#000807"}
@@ -151,7 +153,7 @@ export default function Homepage() {
         </Box>
         </Box>
         <Box bgColor={'#EFD0CA80'} alignItems={'center'} display={'flex'}
-        flexDirection={'column'} w={'100%'} >
+        flexDirection={'column'} w={'100%'}>
             <Text fontSize={'16px'} fontWeight={700}>
                 AVAILABLE tickets
             </Text>
@@ -160,11 +162,11 @@ export default function Homepage() {
             >
                 01
             </Text>
-            <Button mb={3} bgColor={'#EFD0CA'} border={'4px solid #000807'} borderRadius={'500px'} w={'60%'} h={'36px'} p={'14px 10px'} gap={4} fontSize={'12px'} fontWeight={'400'}>
+            <Button mb={3} bgColor={'#EFD0CA'} border={'4px solid #000807'} borderRadius={'500px'} w={'60%'} h={'36px'} p={'16px 10px'} gap={4} fontSize={'12px'} fontWeight={'400'}>
                 PLAY NOW 
                 <Image src="/play.png"/>
             </Button>
-            <Button bgColor={'#EFD0CA'} border={'5px solid #000807'} borderRadius={'500px'} w={'90%'} h={'52px'} p={'15px 24px'} gap={4} fontSize={'12px'} fontWeight={'400'}>
+            <Button bgColor={'#EFD0CA'} border={'5px solid #000807'} borderRadius={'500px'} w={'90%'} h={'52px'} p={'16px 24px'} gap={4} fontSize={'12px'} fontWeight={'400'}>
                 FARMING 
                 <Text>
                 0.02 of 127 
