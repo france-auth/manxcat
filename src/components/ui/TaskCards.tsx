@@ -14,7 +14,7 @@ const TaskButton: React.FC<ButtonProps> = ({name, onClick, className}) => {
       <button
       type="button"
         onClick={onClick}
-        className="text-xs font-bold w-full flex items-center justify-center py-[6px] xs:px-3 xx:px-4">
+        className="text-xs font-bold w-full flex items-center justify-center py-[6px] xs:px-3 xx:px-[18px]">
         {name}
       </button>
     </div>
@@ -89,7 +89,7 @@ const TaskCards = () => {
                   <p className="">+500</p>
                   <div className="flex gap-1">
                     <img src="/coin.png" alt="coin" className="w-4"/>
-                    <p>$MANX</p>
+                    <p>GOLD COINS</p>
                   </div>
                 </div>
               </div>

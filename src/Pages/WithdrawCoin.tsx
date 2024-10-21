@@ -93,7 +93,7 @@ const WithdrawCoin = () => {
             </p>
         </div>
         {isActive === "withdraw" ? (<>
-          <div className="flex px-5 py-2 w-full bg-[#EB8A9054]">
+          <div className="flex px-5 py-3 w-full bg-[#EB8A9054]">
             <div className="flex flex-col w-full gap-5">
               <p className="font-medium text-xs">
                 Please enter the withdrawal amount
@@ -117,7 +117,7 @@ const WithdrawCoin = () => {
                   className="w-full px-3 py-2 rounded-md border outline-none focus:outline-none focus:ring-1 focus:ring-[#000807] focus:ring-opacity-100 text-xs xr:text-sm bg-[#FFFFFF4D] placeholder:text-[#000807] placeholder:xr:text-[15px] placeholder:font-extrabold"
                 />
               </div>
-              <div className="bg-[##EB8A90] p-5">
+              <div className="withdraw-bg p-5">
                 <div className="flex justify-between text-sm mb-3">
                   <p className="font-semibold">Fee</p>
                   <div className="flex">
@@ -131,7 +131,7 @@ const WithdrawCoin = () => {
                 </div>
                 <div className="flex justify-between text-sm">
                   <p className="font-semibold">Amount Recieved</p>
-                  <p>100USDT</p>
+                  <p>100 MANX</p>
                 </div>
               </div>
             </div>
