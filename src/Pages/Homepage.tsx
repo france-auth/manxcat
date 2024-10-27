@@ -50,7 +50,7 @@ export default function Homepage() {
               py={"5px"}
             >
               <Image src="/info.png" />
-              <Text>ABOUT</Text>
+              <Text fontWeight={"700"}>ABOUT</Text>
             </Box>
             <Box
               color={"#000807"}
@@ -64,9 +64,9 @@ export default function Homepage() {
               gap={"2px"}
               py={"5px"}
             >
-              <Link to={'/lobby'}>
+              <Link to={'/lobby'} className="flex flex-col items-center">
                 <Image src="/console.png" />
-                <Text>GAME</Text>
+                <Text fontWeight={"700"}>GAME</Text>
               </Link>
             </Box>
             <Box
@@ -74,6 +74,7 @@ export default function Homepage() {
               fontWeight={400}
               fontSize={"10px"}
               alignItems={"center"}
+              justifyContent={"center"}
               display={"flex"}
               flexDirection={"column"}
               w={"49px"}
@@ -81,8 +82,10 @@ export default function Homepage() {
               gap={"2px"}
               py={"5px"}
             >
-              <Image src="/console.png" />
-              <Text>SPIN</Text>
+              <Link to={'/spin'} className="flex flex-col items-center">
+                <Image src="/console.png" />
+                <Text fontWeight={"700"}>SPIN</Text>
+              </Link>
             </Box>
           </Flex>
           <Flex width={"240px"} h={"300px"} alignItems={'center'} justifyContent={'center'} flexDirection={'column'} position={'relative'}>
@@ -116,7 +119,7 @@ export default function Homepage() {
             >
               <Link to={"/daily-signin"} className="flex flex-col items-center">
                 <Image src="/calendar.png" />
-                <Text>DAILY SIGNIN</Text>
+                <Text fontWeight={"700"}>DAILY SIGNIN</Text>
               </Link>
             </Box>
             <Box
@@ -132,7 +135,7 @@ export default function Homepage() {
               py={"5px"}
             >
               <Image src="/warehouse.png" />
-              <Text>WAREHOUSE</Text>
+              <Text fontWeight={"700"}>WAREHOUSE</Text>
             </Box>
             <Box
               color={"#000807"}
@@ -147,7 +150,7 @@ export default function Homepage() {
               py={"5px"}
             >
               <Image src="/calendar.png" />
-              <Text>AUTO</Text>
+              <Text fontWeight={"700"}>AUTO</Text>
             </Box>
           </Flex>
         </Box>
