@@ -26,7 +26,7 @@ function useFarm() {
   const farm = async () => {
     try {
       const farmData = await farmApi(id);
-      console.log(farmData);
+      //console.log(farmData);
       setFarming(farmData.started);
       setEarned(farmData.earned);
       setEnded(farmData.ended);

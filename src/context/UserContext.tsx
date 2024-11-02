@@ -52,6 +52,7 @@ function UserContext({ children }: { children: ReactNode }) {
       });
 
       if (data) {
+        console.log({ data });
         setCoinsEarned(data.coinsEarned);
       }
     };
