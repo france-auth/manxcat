@@ -4,7 +4,8 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useLocation, // Import useLocation hook
+  useLocation,
+  // Import useLocation hook
 } from "react-router-dom";
 import "./index.css";
 
@@ -27,14 +28,14 @@ import WithdrawCoin from "./Pages/WithdrawCoin";
 import SwapCoin from "./Pages/SwapCoin";
 import DailySignIn from "./Pages/DailySignIn";
 import Shop from "./Pages/Shop";
-
+import UserContext from "./context/UserContext";
 
 function BackButtonHandler() {
   const location = useLocation(); // Use React Router's useLocation to track route changes
 
   useEffect(() => {
     // Initialize the BackButton from the TWA SDK
-    WebApp.expand()
+    WebApp.expand();
     const backButton = WebApp.BackButton;
 
     // Check the current route and show or hide the back button accordingly
@@ -89,7 +90,9 @@ export default function RootApp() {
   return (
     <Router>
       <BackButtonHandler /> {/* This handles the back button logic */}
-      <App />
+      <UserContext>
+        <App />
+      </UserContext>
     </Router>
   );
 }
