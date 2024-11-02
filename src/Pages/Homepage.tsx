@@ -6,7 +6,7 @@ import { useFarm } from "../hooks/useFarm";
 import { useUserContext } from "../context/UserContext";
 import { ClipLoader } from "react-spinners";
 export default function Homepage() {
-  const { id } = useUserContext();
+  const { isLoading: initializing } = useUserContext();
   const {
     isLoading,
     startFarming,
@@ -18,7 +18,7 @@ export default function Homepage() {
     farming,
   } = useFarm();
 
-  if (!id)
+  if (initializing)
     return (
       <Box
         bgImage={"/background.png"}
