@@ -49,6 +49,7 @@ async function createGetUser({
     localStorage.setItem("manxcattoken", resp.data.token);
     if (resp.status == 202) {
       const data = await getUser(telegramId);
+      console.log({ data });
       return data;
     }
 
@@ -65,7 +66,7 @@ async function getUser(telegramId: number): Promise<IUser> {
       Authorization: `Bearer ${token}`,
     },
   });
-
+  console.log(resp);
   return resp.data.data;
 }
 
