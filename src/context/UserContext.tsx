@@ -54,7 +54,7 @@ function UserContext({ children }: { children: ReactNode }) {
           telegramId,
           referredBy: referralId || "",
         });
-
+        console.log({ data });
         if (data) {
           console.log({ data });
           setCoinsEarned(data.coinsEarned);
