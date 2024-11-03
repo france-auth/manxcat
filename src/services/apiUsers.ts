@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://a97f-18-130-247-246.ngrok-free.app/api/v1/users";
+const BASE_URL = "https://b73f-18-130-247-246.ngrok-free.app/api/v1/users";
 
 interface IUser {
   name: string;
