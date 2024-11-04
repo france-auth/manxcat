@@ -68,7 +68,6 @@ async function getUser(telegramId: number): Promise<IUser> {
       "Content-Type": "application/json",
     },
   });
-  console.log({ resp });
   return resp.data.data;
 }
 
