@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://4765-197-210-53-236.ngrok-free.app/api/v1/users";
+const BASE_URL = "https://c445-197-210-53-236.ngrok-free.app/api/v1/users";
 
 interface IUser {
   name: string;
@@ -46,6 +46,7 @@ async function createGetUser({
       telegramId,
       referredBy,
     });
+    console.log(resp);
     localStorage.setItem("manxcattoken", resp.data.token);
     if (resp.status == 202) {
       const data = await getUser(telegramId);
@@ -64,9 +65,10 @@ async function getUser(telegramId: number): Promise<IUser> {
   const resp = await axios.get(`${BASE_URL}/${telegramId}`, {
     headers: {
       Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
     },
   });
-  console.log(resp);
+  console.log({ resp });
   return resp.data.data;
 }
 
