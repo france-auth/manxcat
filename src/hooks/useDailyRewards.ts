@@ -5,14 +5,20 @@ import { useUserContext } from "../context/UserContext";
 function useDailyRewards() {
   const [currentDay, setCurrentDay] = useState("");
   const [totalEarned, setTotalEarned] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   const { id } = useUserContext();
 
   useEffect(() => {
     const getCurrentDay = async () => {
-      const currDay = await resetDailyRewards(id);
+      try {
+        const currDay = await resetDailyRewards(id);
 
-      setCurrentDay(currDay.currentDay);
-      setTotalEarned(currDay.totalRewardsEarned);
+        setCurrentDay(currDay.currentDay);
+        setTotalEarned(currDay.totalRewardsEarned);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
     };
     getCurrentDay();
   }, [id]);
@@ -27,7 +33,7 @@ function useDailyRewards() {
     setTotalEarned(currDay.totalRewardsEarned);
   }
 
-  return { currentDay, totalEarned, claimDailyReward };
+  return { isLoading, currentDay, totalEarned, claimDailyReward };
 }
 
 export { useDailyRewards };

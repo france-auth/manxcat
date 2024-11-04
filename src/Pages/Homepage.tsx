@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import NavigationBar from "../components/NavigationBar";
 import { useFarm } from "../hooks/useFarm";
 import { useUserContext } from "../context/UserContext";
-import { ClipLoader } from "react-spinners";
+import Loader from "../components/ui/Loader";
 export default function Homepage() {
   const { isLoading: initializing } = useUserContext();
   const {
@@ -18,19 +18,7 @@ export default function Homepage() {
     farming,
   } = useFarm();
 
-  if (initializing)
-    return (
-      <Box
-        bgImage={"/background.png"}
-        display={"flex"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        bgColor={"#EB8A90"}
-        h={"100vh"}
-      >
-        <ClipLoader color="#fff" size={50} />
-      </Box>
-    );
+  if (initializing) return <Loader />;
   return (
     <Box
       display={"flex"}

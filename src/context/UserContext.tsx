@@ -40,8 +40,8 @@ function UserContext({ children }: { children: ReactNode }) {
   const referralId = params.get("referralId");
 
   useEffect(() => {
-    const name = WebApp.initDataUnsafe.user?.first_name;
-    const telegramId = WebApp.initDataUnsafe.user?.id;
+    const name = WebApp.initDataUnsafe.user?.first_name || "Me";
+    const telegramId = WebApp.initDataUnsafe.user?.id || 27873818099;
     if (!name || !telegramId) {
       return console.log("Open mini app in telegram");
     }

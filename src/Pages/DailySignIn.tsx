@@ -1,4 +1,5 @@
 import ButtoN from "../components/ui/Button";
+import Loader from "../components/ui/Loader";
 import { useDailyRewards } from "../hooks/useDailyRewards";
 
 interface Daily {
@@ -46,11 +47,15 @@ const daily: Daily[] = [
 ];
 
 const DailySignIn = () => {
-  const { claimDailyReward, totalEarned, currentDay } = useDailyRewards();
+  const { isLoading, claimDailyReward, totalEarned, currentDay } =
+    useDailyRewards();
+
   // Handle claiming a new day
   const handleClaimed = async () => {
     await claimDailyReward();
   };
+
+  if (isLoading) return <Loader />;
   return (
     <main className="apply_page-style">
       <div className="flex flex-col items-center mt-8 gap-8">
