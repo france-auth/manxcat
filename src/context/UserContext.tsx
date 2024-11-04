@@ -54,9 +54,7 @@ function UserContext({ children }: { children: ReactNode }) {
           telegramId,
           referredBy: referralId || "",
         });
-        console.log({ data });
         if (data) {
-          console.log({ data });
           setCoinsEarned(data.coinsEarned);
         }
         setIsLoading(false);
@@ -87,7 +85,7 @@ function UserContext({ children }: { children: ReactNode }) {
 export function useUserContext() {
   const context = useContext(userContext);
   if (context === undefined) {
-    throw new Error("");
+    throw new Error("out of user context");
   }
   return context;
 }

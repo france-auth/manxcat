@@ -111,4 +111,41 @@ async function claimFarmRewards(telegramId: number): Promise<FarmType> {
   return resp.data;
 }
 
-export { getAllUsers, createGetUser, farm, claimFarmRewards, startFarm };
+type DailyRewards = {
+  currentDay: string;
+  totalRewardsEarned: number;
+};
+
+async function updateDailyRewards(telegramId: number): Promise<DailyRewards> {
+  const token = storage();
+
+  const resp = await axios.post(
+    `${BASE_URL}/daily/${telegramId}`,
+    {},
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
+
+  return resp.data;
+}
+
+async function resetDailyRewards(telegramId: number): Promise<DailyRewards> {
+  const token = storage();
+
+  const resp = await axios.post(
+    `${BASE_URL}/daily/reset/${telegramId}`,
+    {},
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
+
+  return resp.data;
+}
+
+export {
+  getAllUsers,
+  createGetUser,
+  farm,
+  claimFarmRewards,
+  startFarm,
+  updateDailyRewards,
+  resetDailyRewards,
+};
