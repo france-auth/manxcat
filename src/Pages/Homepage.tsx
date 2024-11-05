@@ -1,8 +1,24 @@
-import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Spinner, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import NavigationBar from "../components/NavigationBar";
+import { useFarm } from "../hooks/useFarm";
+import { useUserContext } from "../context/UserContext";
+import Loader from "../components/ui/Loader";
 export default function Homepage() {
+  const { isLoading: initializing } = useUserContext();
+  const {
+    isLoading,
+    startFarming,
+    claimRewards,
+    ended,
+    totalHrs,
+    maxEarning,
+    earned,
+    farming,
+  } = useFarm();
+
+  if (initializing) return <Loader />;
   return (
     <Box
       display={"flex"}
@@ -23,159 +39,209 @@ export default function Homepage() {
         flexDirection={"column"}
         pb={24}
         gap={5}
-        alignItems={'center'}
-        justifyContent={'center'}
+        alignItems={"center"}
+        justifyContent={"center"}
         mt={5}
       >
         <Header />
         <Box display={"flex"} alignItems={"center"} justifyContent={"center"}>
-        <Box display={"flex"} alignItems={"center"} mt={6}>
-          <Flex
-            gap={"60px"}
-            flexDirection={"column"}
-            w={"50px"}
-            height={"314px"}
-            zIndex={10}
-          >
-            <Box
-              color={"#000807"}
-              fontWeight={400}
-              fontSize={"10px"}
-              alignItems={"center"}
-              display={"flex"}
+          <Box display={"flex"} alignItems={"center"} mt={6}>
+            <Flex
+              gap={"60px"}
               flexDirection={"column"}
-              w={"49px"}
-              h={"65px"}
-              gap={"2px"}
-              py={"5px"}
+              w={"50px"}
+              height={"314px"}
+              zIndex={10}
             >
-              <Image src="/info.png" />
-              <Text fontWeight={"700"}>ABOUT</Text>
-            </Box>
-            <Box
-              color={"#000807"}
-              fontWeight={400}
-              fontSize={"10px"}
-              alignItems={"center"}
-              display={"flex"}
-              flexDirection={"column"}
-              w={"49px"}
-              h={"65px"}
-              gap={"2px"}
-              py={"5px"}
-            >
-              <Link to={'/lobby'} className="flex flex-col items-center">
-                <Image src="/console.png" />
-                <Text fontWeight={"700"}>GAME</Text>
-              </Link>
-            </Box>
-            <Box
-              color={"#000807"}
-              fontWeight={400}
-              fontSize={"10px"}
+              <Box
+                color={"#000807"}
+                fontWeight={400}
+                fontSize={"10px"}
+                alignItems={"center"}
+                display={"flex"}
+                flexDirection={"column"}
+                w={"49px"}
+                h={"65px"}
+                gap={"2px"}
+                py={"5px"}
+              >
+                <Image src="/info.png" />
+                <Text fontWeight={"700"}>ABOUT</Text>
+              </Box>
+              <Box
+                color={"#000807"}
+                fontWeight={400}
+                fontSize={"10px"}
+                alignItems={"center"}
+                display={"flex"}
+                flexDirection={"column"}
+                w={"49px"}
+                h={"65px"}
+                gap={"2px"}
+                py={"5px"}
+              >
+                <Link to={"/lobby"} className="flex flex-col items-center">
+                  <Image src="/console.png" />
+                  <Text fontWeight={"700"}>GAME</Text>
+                </Link>
+              </Box>
+              <Box
+                color={"#000807"}
+                fontWeight={400}
+                fontSize={"10px"}
+                alignItems={"center"}
+                justifyContent={"center"}
+                display={"flex"}
+                flexDirection={"column"}
+                w={"49px"}
+                h={"65px"}
+                gap={"2px"}
+                py={"5px"}
+              >
+                <Link to={"/spin"} className="flex flex-col items-center">
+                  <Image src="/console.png" />
+                  <Text fontWeight={"700"}>SPIN</Text>
+                </Link>
+              </Box>
+            </Flex>
+            <Flex
+              width={"240px"}
+              h={"300px"}
               alignItems={"center"}
               justifyContent={"center"}
-              display={"flex"}
               flexDirection={"column"}
-              w={"49px"}
-              h={"65px"}
-              gap={"2px"}
-              py={"5px"}
+              position={"relative"}
             >
-              <Link to={'/spin'} className="flex flex-col items-center">
-                <Image src="/console.png" />
-                <Text fontWeight={"700"}>SPIN</Text>
-              </Link>
-            </Box>
-          </Flex>
-          <Flex width={"240px"} h={"300px"} alignItems={'center'} justifyContent={'center'} flexDirection={'column'} position={'relative'}>
-            <Image
-              src="/manx.png"
-              w={"95%"}
-              maxW={"97%"}
-              position={'absolute'}
-              top={5}
-            />
-          </Flex>
-          <Flex
-            gap={"60px"}
-            flexDirection={"column"}
-            w={"50px"}
-            height={"314px"}
-            zIndex={10}
-          >
-            <Box
-              color={"#000807"}
-              fontWeight={400}
-              fontSize={"10px"}
-              alignItems={"center"}
-              display={"flex"}
+              <Image
+                src="/manx.png"
+                w={"95%"}
+                maxW={"97%"}
+                position={"absolute"}
+                top={5}
+              />
+            </Flex>
+            <Flex
+              gap={"60px"}
               flexDirection={"column"}
-              w={"49px"}
-              h={"65px"}
-              gap={"2px"}
-              py={"5px"}
-              textAlign={"center"}
+              w={"50px"}
+              height={"314px"}
+              zIndex={10}
             >
-              <Link to={"/daily-signin"} className="flex flex-col items-center">
+              <Box
+                color={"#000807"}
+                fontWeight={400}
+                fontSize={"10px"}
+                alignItems={"center"}
+                display={"flex"}
+                flexDirection={"column"}
+                w={"49px"}
+                h={"65px"}
+                gap={"2px"}
+                py={"5px"}
+                textAlign={"center"}
+              >
+                <Link
+                  to={"/daily-signin"}
+                  className="flex flex-col items-center"
+                >
+                  <Image src="/calendar.png" />
+                  <Text fontWeight={"700"}>DAILY SIGNIN</Text>
+                </Link>
+              </Box>
+              <Box
+                color={"#000807"}
+                fontWeight={400}
+                fontSize={"10px"}
+                alignItems={"center"}
+                display={"flex"}
+                flexDirection={"column"}
+                w={"49px"}
+                h={"65px"}
+                gap={"2px"}
+                py={"5px"}
+              >
+                <Image src="/warehouse.png" />
+                <Text fontWeight={"700"}>WAREHOUSE</Text>
+              </Box>
+              <Box
+                color={"#000807"}
+                fontWeight={400}
+                fontSize={"10px"}
+                alignItems={"center"}
+                display={"flex"}
+                flexDirection={"column"}
+                w={"49px"}
+                h={"65px"}
+                gap={"2px"}
+                py={"5px"}
+              >
                 <Image src="/calendar.png" />
-                <Text fontWeight={"700"}>DAILY SIGNIN</Text>
-              </Link>
-            </Box>
-            <Box
-              color={"#000807"}
-              fontWeight={400}
-              fontSize={"10px"}
-              alignItems={"center"}
-              display={"flex"}
-              flexDirection={"column"}
-              w={"49px"}
-              h={"65px"}
-              gap={"2px"}
-              py={"5px"}
-            >
-              <Image src="/warehouse.png" />
-              <Text fontWeight={"700"}>WAREHOUSE</Text>
-            </Box>
-            <Box
-              color={"#000807"}
-              fontWeight={400}
-              fontSize={"10px"}
-              alignItems={"center"}
-              display={"flex"}
-              flexDirection={"column"}
-              w={"49px"}
-              h={"65px"}
-              gap={"2px"}
-              py={"5px"}
-            >
-              <Image src="/calendar.png" />
-              <Text fontWeight={"700"}>AUTO</Text>
-            </Box>
-          </Flex>
+                <Text fontWeight={"700"}>AUTO</Text>
+              </Box>
+            </Flex>
+          </Box>
         </Box>
-        </Box>
-        <Box bgColor={'#EFD0CA80'} alignItems={'center'} display={'flex'}
-        flexDirection={'column'} w={'100%'}>
-            <Text fontSize={'16px'} fontWeight={700}>
-                AVAILABLE tickets
-            </Text>
-            <Text mb={2} fontSize={'20px'} fontWeight={400} 
-            lineHeight={'32.9px'}
-            >
-                01
-            </Text>
-            <Button mb={3} bgColor={'#EFD0CA'} border={'4px solid #000807'} borderRadius={'500px'} w={'60%'} h={'36px'} p={'16px 10px'} gap={4} fontSize={'12px'} fontWeight={'400'}>
-                PLAY NOW 
-                <Image src="/play.png"/>
-            </Button>
-            <Button bgColor={'#EFD0CA'} border={'5px solid #000807'} borderRadius={'500px'} w={'90%'} h={'52px'} p={'16px 24px'} gap={4} fontSize={'12px'} fontWeight={'400'}>
-                FARMING 
+        <Box
+          bgColor={"#EFD0CA80"}
+          alignItems={"center"}
+          display={"flex"}
+          flexDirection={"column"}
+          w={"100%"}
+        >
+          <Text fontSize={"16px"} fontWeight={700}>
+            AVAILABLE tickets
+          </Text>
+          <Text mb={2} fontSize={"20px"} fontWeight={400} lineHeight={"32.9px"}>
+            01
+          </Text>
+          <Button
+            mb={3}
+            bgColor={"#EFD0CA"}
+            border={"4px solid #000807"}
+            borderRadius={"500px"}
+            w={"60%"}
+            h={"36px"}
+            p={"16px 10px"}
+            gap={4}
+            fontSize={"12px"}
+            fontWeight={"400"}
+          >
+            PLAY NOW
+            <Image src="/play.png" />
+          </Button>
+          <Button
+            bgColor={"#EFD0CA"}
+            border={"5px solid #000807"}
+            borderRadius={"500px"}
+            w={"90%"}
+            h={"52px"}
+            p={"16px 24px"}
+            gap={4}
+            fontSize={"12px"}
+            fontWeight={"400"}
+            disabled={ended ? false : farming}
+            onClick={ended ? claimRewards : startFarming}
+          >
+            {isLoading ? (
+              <Spinner />
+            ) : farming ? (
+              ended ? (
+                "claim rewards"
+              ) : (
+                "Farming..."
+              )
+            ) : (
+              "Farm"
+            )}
+            {farming && (
+              <>
                 <Text>
-                0.02 of 127 
+                  {earned?.toFixed(3)} of {maxEarning}
                 </Text>
-                <Text>180MIN</Text>
-            </Button>
+                <Text>{totalHrs && totalHrs * 60}MIN</Text>
+              </>
+            )}
+          </Button>
         </Box>
       </Flex>
       <NavigationBar />
