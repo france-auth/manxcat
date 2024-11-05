@@ -58,6 +58,18 @@
   .rectangle-span {
     @apply border-y-[0.4px] border-solid  border-black w-28 h-[4.5px] bg-[#D9D9D9]
   }
+  .container {
+    @apply relative w-52 h-52 flex justify-center items-center
+  }
+  .btn {
+    @apply absolute w-9 h-9 flex justify-center items-center rounded-[50%] shadow-lg z-10 cursor-pointer select-none
+  }
+  .btn::before {
+    @apply absolute w-7 h-7 -top-5
+  }
+  .btn::after {
+    @apply absolute w-8 h-8 flex justify-center items-center
+  }
 }
 
 * {
