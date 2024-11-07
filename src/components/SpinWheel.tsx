@@ -54,20 +54,21 @@ const SpinWheel = () => {
 
 export default SpinWheel;
  */
-
+import React from "react";
 import { useState } from "react";
 import { Wheel } from "react-custom-roulette";
 
 const data = [
-  { option: '100', color: '#f39c12', image: '/coin.png' },
-  { option: 'cd', color: '#e67e22', image: '/coin.png' },
-  { option: 'USDT', color: '#f39c12', image: '/coin.png' },
-  { option: 'ss', color: '#e67e22', image: '/coin.png' },
-  { option: '500', color: '#f39c12', image: '/coin.png' },
-  { option: 'ss', color: '#e67e22', image: '/coin.png' },
-  { option: '1000', color: '#f39c12', image: '/coin.png' },
-  { option: 'MANX', color: '#e67e22', image: '/coin.png' }
+  { option: '100', color: '#f39c12', image: { src: '/coin.png', alt: 'Coin icon' } },
+  { option: 'cd', color: '#e67e22', image: { src: '/coin.png', alt: 'Coin icon' } },
+  { option: 'USDT', color: '#f39c12', image: { src: '/coin.png', alt: 'Coin icon' } },
+  { option: 'ss', color: '#e67e22', image: { src: '/coin.png', alt: 'Coin icon' } },
+  { option: '500', color: '#f39c12', image: { src: '/coin.png', alt: 'Coin icon' } },
+  { option: 'ss', color: '#e67e22', image: { src: '/coin.png', alt: 'Coin icon' } },
+  { option: '1000', color: '#f39c12', image: { src: '/coin.png', alt: 'Coin icon' } },
+  { option: 'MANX', color: '#e67e22', image: { src: '/coin.png', alt: 'Coin icon' } }
 ];
+
 
 const SpinWheel = () => {
   const [mustSpin, setMustSpin] = useState(false);
@@ -86,6 +87,7 @@ const SpinWheel = () => {
     <main className="flex flex-col justify-center items-center mb-9">
       {/* Add a temporary border to test visibility */}
       <div className="h-[300px] w-[300px] p-2 rounded-full border-4 border-solid border-[black]">
+      </div>
         <Wheel
           mustStartSpinning={mustSpin}
           prizeNumber={prizeIndex}
@@ -99,7 +101,6 @@ const SpinWheel = () => {
           innerBorderWidth={2}
           innerRadius={5}
         />
-      </div>
       <button
         type="button"
         onClick={startSpin}
