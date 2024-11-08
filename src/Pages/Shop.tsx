@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { LevelList } from "../data";
 
 const Shop = () => {
@@ -38,7 +38,16 @@ const Shop = () => {
                 bg={"#efd0ca"}
                 className="w-full py-5 flex items-center justify-around rounded-2xl"
               >
-                <Image src={level.image} w={'25%'}/>
+                <video 
+                  src={level.video} 
+                  className="w-full h-auto block z-50"
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline 
+                  >
+                    Your Browser doesnt support.
+                </video>
                 <Box
                   display={"flex"}
                   flexDirection={"column"}
