@@ -1,3 +1,4 @@
+import React from "react"
 import { Box, Flex, Icon, Image, Text } from "@chakra-ui/react";
 import { FaPlus } from "react-icons/fa6";
 import { Link } from "react-router-dom";

@@ -1,3 +1,4 @@
+import React from "react"
 import { useState } from "react";
 import ButtoN from "../components/ui/Button";
 import { friends } from "../data";

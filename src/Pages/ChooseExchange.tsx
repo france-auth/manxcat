@@ -1,4 +1,6 @@
 import ButtoN from "../components/ui/Button";
+import React from "react"
+
 
 interface Exchange {
   exchange: string;

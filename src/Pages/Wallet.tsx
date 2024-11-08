@@ -1,3 +1,4 @@
+import React from "react"
 import { Button, Image } from "@chakra-ui/react"
 import ButtoN from "../components/ui/Button"
 import { useState } from "react"
@@ -55,7 +56,7 @@ const Wallet = () => {
 
   return (
     <main className="page-style">
-      {isConnected? (<div className="flex flex-col items-center w-full mt-3">
+      {!isConnected? (<div className="flex flex-col items-center w-full mt-3">
         <Button 
           mb={3} 
           bgColor={'#EFD0CA'} 
