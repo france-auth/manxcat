@@ -251,7 +251,7 @@ const SpinWheel: React.FC = () => {
             datalabels: {
               color: '#000',
               font: { size: 16 },
-              formatter: (value: number, context: unknown) => {
+              formatter: (_: number, context: unknown) => {
                 const ctx = context as { chart: { data: { labels: string[] }; }; dataIndex: number };
                 return ctx.chart.data.labels[ctx.dataIndex];
               },                // Use proper type
