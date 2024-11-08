@@ -40,11 +40,12 @@ const Shop = () => {
               >
                 <video 
                   src={level.video} 
-                  className="w-full h-auto block z-50"
+                  className="w-[25%] h-auto bg-transparent"
                   autoPlay 
                   loop 
                   muted 
                   playsInline 
+                  
                   >
                     Your Browser doesnt support.
                 </video>
