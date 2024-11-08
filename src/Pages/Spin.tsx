@@ -1,7 +1,7 @@
 import { Button, Image } from "@chakra-ui/react"
 //import { useState } from "react";
 import SpinWheel from "../components/SpinWheel"
-
+import React from "react"
 
 const Spin = () => {
   /*  const [spinState, setSpinState] = useState<boolean>(false);
