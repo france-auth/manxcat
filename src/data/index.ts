@@ -101,32 +101,32 @@ interface Friends {
 }
 export const friends: Friends[] = [
   {
-    pfp: "/friends/Macaco-NFT.png",
+    pfp: "/friends/Macaco-NFT.mp4",
     name: "ALCH3MY",
     balance: 13023
   },
   {
-    pfp: "/friends/Metaforge.png",
+    pfp: "/friends/Metaforge.mp4",
     name: "METAFORGE",
     balance: 13023
   },
   {
-    pfp: "/friends/Quantumtoken.png",
+    pfp: "/friends/Quantumtoken.mp4",
     name: "QUANTUMTOKEN",
     balance: 13023
   },
   {
-    pfp: "/friends/Digiorbit.png",
+    pfp: "/friends/Digiorbit.mp4",
     name: "DIGIORBIT",
     balance: 13023
   },
   {
-    pfp: "/friends/Novahash.png",
+    pfp: "/friends/Novahash.mp4",
     name: "NOVAHASH",
     balance: 13023
   },
   {
-    pfp: "/friends/Pudgypenguin.png",
+    pfp: "/friends/Pudgypenguin.mp4",
     name: "ETHERWAVE",
     balance: 13023
   },
@@ -135,242 +135,242 @@ export const friends: Friends[] = [
 
 export const LevelList = [
   {
-    image: "/cats/cat1.png",
+    video: "/01.mp4",
     level: "1",
     points: "10",
   },
   {
-    image: "/cats/cat2.png",
+    video: "/02.mp4",
     level: "2",
     points: "20",
   },
   {
-    image: "/cats/cat3.png",
+    video: "/03.mp4",
     level: "3",
     points: "30",
   },
   {
-    image: "/cats/cat4.png",
+    video: "/04.mp4",
     level: "4",
     points: "40",
   },
   {
-    image: "/cats/cat5.png",
+    video: "/05.mp4",
     level: "5",
     points: "50",
   },
   {
-    image: "/cats/cat6.png",
+    video: "/06.mp4",
     level: "6",
     points: "60",
   },
   {
-    image: "/cats/cat7.png",
+    video: "/07.mp4",
     level: "7",
     points: "80",
   },
   {
-    image: "/cats/cat8.png",
+    video: "/08.mp4",
     level: "8",
     points: "100",
   },
   {
-    image: "/cats/cat9.png",
+    video: "/09.mp4",
     level: "9",
     points: "120",
   },
   {
-    image: "/cats/cat10.png",
+    video: "/10.mp4",
     level: "10",
     points: "140",
   },
   {
-    image: "/cats/cat11.png",
+    video: "/11.mp4",
     level: "11",
     points: "160",
   },
   {
-    image: "/cats/cat12.png",
+    video: "/12.mp4",
     level: "12",
     points: "180",
   },
   {
-    image: "/cats/cat13.png",
+    video: "/13.mp4",
     level: "13",
     points: "200",
   },
   {
-    image: "/cats/cat14.png",
+    video: "/14.mp4",
     level: "14",
     points: "220",
   },
   {
-    image: "/cats/cat15.png",
+    video: "/15.mp4",
     level: "15",
     points: "240",
   },
   {
-    image: "/cats/cat16.png",
+    video: "/16.mp4",
     level: "16",
     points: "260",
   },
   {
-    image: "/cats/cat17.png",
+    video: "/17.mp4",
     level: "17",
     points: "280",
   },
   {
-    image: "/cats/cat18.png",
+    video: "/18.mp4",
     level: "18",
     points: "300",
   },
   {
-    image: "/cats/cat19.png",
+    video: "/19.mp4",
     level: "19",
     points: "320",
   },
   {
-    image: "/cats/cat20.png",
+    video: "/20.mp4",
     level: "20",
     points: "340",
   },
   {
-    image: "/cats/cat21.png",
+    video: "/21.mp4",
     level: "21",
     points: "360",
   },
   {
-    image: "/cats/cat22.png",
+    video: "/22.mp4",
     level: "22",
     points: "380",
   },
   {
-    image: "/cats/cat23.png",
+    video: "/23.mp4",
     level: "23",
     points: "400",
   },
   {
-    image: "/cats/cat24.png",
+    video: "/24.mp4",
     level: "24",
     points: "420",
   },
   {
-    image: "/cats/cat25.png",
+    video: "/25.mp4",
     level: "25",
     points: "440",
   },
   {
-    image: "/cats/cat26.png",
+    video: "/26.mp4",
     level: "26",
     points: "460",
   },
   {
-    image: "/cats/cat27.png",
+    video: "/27.mp4",
     level: "27",
     points: "480",
   },
   {
-    image: "/cats/cat28.png",
+    video: "/28.mp4",
     level: "28",
     points: "500",
   },
   {
-    image: "/cats/cat29.png",
+    video: "/29.mp4",
     level: "29",
     points: "520",
   },
   {
-    image: "/cats/cat30.png",
+    video: "/30.mp4",
     level: "30",
     points: "540",
   },
   {
-    image: "/cats/cat31.png",
+    video: "/31.mp4",
     level: "31",
     points: "560",
   },
   {
-    image: "/cats/cat32.png",
+    video: "/32.mp4",
     level: "32",
     points: "580",
   },
   {
-    image: "/cats/cat33.png",
+    video: "/33.mp4",
     level: "33",
     points: "600",
   },
   {
-    image: "/cats/cat34.png",
+    video: "/34.mp4",
     level: "34",
     points: "620",
   },
   {
-    image: "/cats/cat35.png",
+    video: "/35.mp4",
     level: "35",
     points: "640",
   },
   {
-    image: "/cats/cat36.png",
+    video: "/36.mp4",
     level: "36",
     points: "660",
   },
   {
-    image: "/cats/cat37.png",
+    video: "/37.mp4",
     level: "37",
     points: "680",
   },
   {
-    image: "/cats/cat38.png",
+    video: "/38.mp4",
     level: "38",
     points: "700",
   },
   {
-    image: "/cats/cat39.png",
+    video: "/39.mp4",
     level: "39",
     points: "720",
   },
   {
-    image: "/cats/cat40.png",
+    video: "/40.mp4",
     level: "40",
     points: "740",
   },
   {
-    image: "/cats/cat41.png",
+    video: "/41.mp4",
     level: "41",
     points: "760",
   },
   {
-    image: "/cats/cat42.png",
+    video: "/42.mp4",
     level: "42",
     points: "780",
   },
   {
-    image: "/cats/cat43.png",
+    video: "/43.mp4",
     level: "43",
     points: "800",
   },
   {
-    image: "/cats/cat44.png",
+    video: "/44.mp4",
     level: "44",
     points: "820",
   },
   {
-    image: "/cats/cat45.png",
+    video: "/45.mp4",
     level: "45",
     points: "840",
   },
   {
-    image: "/cats/cat46.png",
+    video: "/46.mp4",
     level: "46",
     points: "860",
   },
   {
-    image: "/cats/cat47.png",
+    video: "/47.mp4",
     level: "47",
     points: "880",
   },
   {
-    image: "/cats/cat48.png",
+    video: "/48.mp4",
     level: "48",
     points: "900",
   },
