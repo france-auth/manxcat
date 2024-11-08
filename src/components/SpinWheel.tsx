@@ -108,10 +108,8 @@ const SpinWheel = () => {
       </button>
     </main>
   );
-};
-
-export default SpinWheel;
- */
+};*/
+/* 
 import React, { useRef, useState } from 'react';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Pie } from 'react-chartjs-2';
@@ -119,22 +117,16 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
-const rotationValues = [
-  { minDegree: 0, maxDegree: 30, value: 2 },
-  { minDegree: 31, maxDegree: 90, value: 1 },
-  { minDegree: 91, maxDegree: 150, value: 6 },
-  { minDegree: 151, maxDegree: 210, value: 5 },
-  { minDegree: 211, maxDegree: 270, value: 4 },
-  { minDegree: 271, maxDegree: 330, value: 3 },
-  { minDegree: 331, maxDegree: 360, value: 2 },
-];
-
 const SpinWheel: React.FC = () => {
   const chartRef = useRef<ChartJS<'pie'> | null>(null);
   const [finalValue, setFinalValue] = useState<string>('Click On The Spin Button To Start');
 
-  const data = Array(12).fill(16);
-  const pieColors = ['#f39c12', '#e67e22'];
+  // Equal sizes for all pies
+  const data = Array(12).fill(1);  // Equal pie slices
+  const pieColors = [
+    '#f39c12', '#e67e22', '#f39c12', '#e67e22', '#f39c12', '#e67e22',
+    '#f39c12', '#e67e22', '#f39c12', '#e67e22', '#f39c12', '#e67e22'
+  ];  // Alternating colors
 
   const handleSpin = () => {
     const randomDegree = Math.floor(Math.random() * 355);
@@ -150,7 +142,7 @@ const SpinWheel: React.FC = () => {
           resultValue -= 5;
           chartInstance.options.rotation = 0;
         } else if (count > 15 && chartInstance.options.rotation === randomDegree) {
-          setFinalValue(`Value: ${rotationValues.find(val => randomDegree >= val.minDegree && randomDegree <= val.maxDegree)?.value || 0}`);
+          setFinalValue(`Value: ${Math.floor((randomDegree / 30) + 1)}`); // Determine the slice value
           clearInterval(interval);
         } else {
           chartInstance.options.rotation! += resultValue;
@@ -165,21 +157,112 @@ const SpinWheel: React.FC = () => {
       <Pie
         ref={chartRef}
         data={{
-          labels: Array.from({ length: 12 }, (_, i) => i + 1),
-          datasets: [{ data, backgroundColor: pieColors }]
+          labels: Array.from({ length: 12 }, (_, i) => (i + 1).toString()),  // Labels from 1 to 12
+          datasets: [{
+            data,
+            backgroundColor: pieColors,  // Alternating colors for better visibility
+          }],
         }}
         options={{
           responsive: true,
           plugins: {
             tooltip: { enabled: false },
-            datalabels: { color: '#000', font: { size: 16 } },
+            datalabels: {
+              color: '#000',
+              font: { size: 16 },
+              formatter: (value: number, context: any) => context.chart.data.labels[context.dataIndex],  // Display numbers 1-12
+              anchor: 'center',
+              align: 'center',
+              rotation: 0,
+            },
           },
         }}
       />
       <button onClick={handleSpin} className="absolute inset-[52%] h-[10%] w-[10%] -translate-x-[62%] -translate-y-[47%] rounded-full bg-yellow-400 text-sm">
         Spin
       </button>
-      <img src="/spinner-arrow.svg" alt="spinner-arrow" className="absolute top-1/2 right-4 w-8 rotate-90" />
+      <img src="/spinner-arrow.svg" alt="spinner-arrow" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 rotate-90" />
+      <div className="text-center text-lg mt-4 text-gray-800">{finalValue}</div>
+    </div>
+  );
+};
+
+export default SpinWheel;
+ */
+
+
+import React, { useRef, useState } from 'react';
+import ChartDataLabels, { ChartDataLabelsContext } from 'chartjs-plugin-datalabels';  // Import the type
+import { Pie } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+
+ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
+
+const SpinWheel: React.FC = () => {
+  const chartRef = useRef<ChartJS<'pie'> | null>(null);
+  const [finalValue, setFinalValue] = useState<string>('Click On The Spin Button To Start');
+
+  // Equal sizes for all pies
+  const data = Array(12).fill(1);  // Equal pie slices
+  const pieColors = [
+    '#f39c12', '#e67e22', '#f39c12', '#e67e22', '#f39c12', '#e67e22',
+    '#f39c12', '#e67e22', '#f39c12', '#e67e22', '#f39c12', '#e67e22'
+  ];  // Alternating colors
+
+  const handleSpin = () => {
+    const randomDegree = Math.floor(Math.random() * 355);
+    setFinalValue('Good Luck!');
+    const chartInstance = chartRef.current;
+
+    if (chartInstance) {
+      let count = 0;
+      let resultValue = 101;
+      const interval = setInterval(() => {
+        if (chartInstance.options.rotation! >= 360) {
+          count += 1;
+          resultValue -= 5;
+          chartInstance.options.rotation = 0;
+        } else if (count > 15 && chartInstance.options.rotation === randomDegree) {
+          setFinalValue(`Value: ${Math.floor((randomDegree / 30) + 1)}`); // Determine the slice value
+          clearInterval(interval);
+        } else {
+          chartInstance.options.rotation! += resultValue;
+          chartInstance.update();
+        }
+      }, 10);
+    }
+  };
+
+  return (
+    <div className="w-full max-w-md h-full flex flex-col items-center bg-transparent p-5 rounded-full shadow-lg relative border-solid border-black border-4">
+      <Pie
+        ref={chartRef}
+        data={{
+          labels: Array.from({ length: 12 }, (_, i) => (i + 1).toString()),  // Labels from 1 to 12
+          datasets: [{
+            data,
+            backgroundColor: pieColors,  // Alternating colors for better visibility
+          }],
+        }}
+        options={{
+          responsive: true,
+          plugins: {
+            tooltip: { enabled: false },
+            datalabels: {
+              color: '#000',
+              font: { size: 16 },
+              formatter: (value: number, context: ChartDataLabelsContext) => context.chart.data.labels[context.dataIndex],  // Use proper type
+              anchor: 'center',
+              align: 'center',
+              rotation: 0,
+            },
+          },
+        }}
+      />
+      <button onClick={handleSpin} className="absolute inset-[52%] h-[10%] w-[10%] -translate-x-[62%] -translate-y-[47%] rounded-full bg-yellow-400 text-sm">
+        Spin
+      </button>
+      <img src="/spinner-arrow.svg" alt="spinner-arrow" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 rotate-90" />
       <div className="text-center text-lg mt-4 text-gray-800">{finalValue}</div>
     </div>
   );
