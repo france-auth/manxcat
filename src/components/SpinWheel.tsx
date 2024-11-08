@@ -192,7 +192,7 @@ export default SpinWheel;
 
 
 import React, { useRef, useState } from 'react';
-import ChartDataLabels, { ChartDataLabelsContext } from 'chartjs-plugin-datalabels';  // Import the type
+import ChartDataLabels from 'chartjs-plugin-datalabels';  // Import the type
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
@@ -251,7 +251,10 @@ const SpinWheel: React.FC = () => {
             datalabels: {
               color: '#000',
               font: { size: 16 },
-              formatter: (value: number, context: ChartDataLabelsContext) => context.chart.data.labels[context.dataIndex],  // Use proper type
+              formatter: (value: number, context: unknown) => {
+                const ctx = context as { chart: { data: { labels: string[] }; }; dataIndex: number };
+                return ctx.chart.data.labels[ctx.dataIndex];
+              },                // Use proper type
               anchor: 'center',
               align: 'center',
               rotation: 0,
