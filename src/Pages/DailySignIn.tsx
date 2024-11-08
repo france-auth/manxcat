@@ -1,3 +1,4 @@
+import React from "react"
 import ButtoN from "../components/ui/Button";
 import Loader from "../components/ui/Loader";
 import { useDailyRewards } from "../hooks/useDailyRewards";

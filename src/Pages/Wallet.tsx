@@ -1,3 +1,4 @@
+import React from "react"
 import { Button, Image } from "@chakra-ui/react"
 import ButtoN from "../components/ui/Button"
 import { useState } from "react"

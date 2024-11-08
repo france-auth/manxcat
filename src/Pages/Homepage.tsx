@@ -1,3 +1,4 @@
+import React from "react"
 import { Box, Button, Flex, Image, Spinner, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";

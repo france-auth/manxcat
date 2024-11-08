@@ -1,3 +1,4 @@
+import React from "react"
 import ButtoN from "../components/ui/Button";
 
 interface Swapping {
