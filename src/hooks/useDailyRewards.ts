@@ -6,7 +6,7 @@ function useDailyRewards() {
   const [currentDay, setCurrentDay] = useState("");
   const [totalEarned, setTotalEarned] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const { id } = useUserContext();
+  const { id, setCoinsEarned } = useUserContext();
 
   useEffect(() => {
     const getCurrentDay = async () => {
@@ -31,6 +31,7 @@ function useDailyRewards() {
 
     setCurrentDay(currDay.currentDay);
     setTotalEarned(currDay.totalRewardsEarned);
+    setCoinsEarned((prev)=> prev + currDay.totalRewardsEarned)
   }
 
   return { isLoading, currentDay, totalEarned, claimDailyReward };
