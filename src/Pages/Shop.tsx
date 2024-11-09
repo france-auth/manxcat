@@ -31,16 +31,17 @@ const Shop = () => {
           <Text fontSize={"25px"} fontWeight={700} color={"#000807"} className="font-bold">
             CAT LEVEL INFORMATION
           </Text>
-          {LevelList.map((level) => {
+          {LevelList.map(({video, price, points, level}, id) => {
             return (
               <Box
                 border={"1px solid #000807"}
                 bg={"#efd0ca"}
                 className="w-full py-5 flex items-center justify-around rounded-2xl"
+                key={id}
               >
                 <div className="w-[25%] h-auto flex items-center justify-center">
                   <video 
-                    src={level.video} 
+                    src={video} 
                     className="w-full h-auto bg-[#000807] rounded-2xl p-1"
                     autoPlay 
                     loop 
@@ -62,10 +63,10 @@ const Shop = () => {
                       fontWeight={700}
                       color={"#000807"}
                     >
-                      LEVEL {level.level} CAT
+                      LEVEL {level} CAT
                     </Text>
                     <Text fontSize={"13px"} fontWeight={"500"}>
-                      {level.points} / 3 hr
+                      {points} / 3 hr
                     </Text>
                   </Flex>
                   <Button
@@ -74,7 +75,7 @@ const Shop = () => {
                     bg={"#efd0ca"}
                     textColor={"#000807"}
                   >
-                    BUY
+                    BUY - {price}
                   </Button>
                 </Box>
               </Box>
