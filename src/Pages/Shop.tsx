@@ -38,17 +38,18 @@ const Shop = () => {
                 bg={"#efd0ca"}
                 className="w-full py-5 flex items-center justify-around rounded-2xl"
               >
-                <video 
-                  src={level.video} 
-                  className="w-[25%] h-auto bg-transparent"
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline 
-                  
-                  >
-                    Your Browser doesnt support.
-                </video>
+                <div className="w-[25%] h-auto flex items-center justify-center">
+                  <video 
+                    src={level.video} 
+                    className="w-full h-auto bg-[#000807] rounded-2xl p-1"
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    >
+                      Your Browser doesnt support.
+                  </video>
+                </div>
                 <Box
                   display={"flex"}
                   flexDirection={"column"}
