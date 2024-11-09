@@ -24,7 +24,7 @@ const Shop = () => {
           width={"full"}
           display={"flex"}
           flexDirection={"column"}
-          alignItems={"center"}
+          alignItems={"center"} 
           justifyContent={"center"}
           gap={5}
         >
