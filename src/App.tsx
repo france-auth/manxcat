@@ -30,6 +30,7 @@ import SwapCoin from "./Pages/SwapCoin";
 import DailySignIn from "./Pages/DailySignIn";
 import Shop from "./Pages/Shop";
 import UserContext from "./context/UserContext";
+import Loader from "./components/ui/Loader";
 
 function BackButtonHandler() {
   const location = useLocation(); // Use React Router's useLocation to track route changes
@@ -92,6 +93,7 @@ export default function RootApp() {
     <Router>
       <BackButtonHandler /> {/* This handles the back button logic */}
       <UserContext>
+        <Loader />
         <App />
       </UserContext>
     </Router>

@@ -13,7 +13,21 @@ export default {
         'xs': '320px',
         'xx': '350px',
         'xr': '400px',
-      }
+      },
+      animation: {
+        fadeIn: 'fadeIn .5s ease-in',
+        spin: 'spin 5s linear infinite', // You can customize the speed or other properties here
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        spin: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+      },
     },
   },
   plugins: [],
