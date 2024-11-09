@@ -47,6 +47,7 @@ const Shop = () => {
                     loop 
                     muted 
                     playsInline 
+                    preload="auto"
                     >
                       Your Browser doesn't support.
                   </video>
@@ -55,7 +56,7 @@ const Shop = () => {
                   display={"flex"}
                   flexDirection={"column"}
                   justifyContent={"space-between"}
-                  className="gap-5 w-[55%]"
+                  className="gap-5 xx:w-[65%] xr:w-[60%]"
                 >
                   <Flex className="flex justify-between items-center w-full">
                     <Text
