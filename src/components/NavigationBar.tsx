@@ -43,7 +43,7 @@ const NavigationBar: React.FC = () => {
             position={'fixed'}
             bottom={0}
             right={0}
-            zIndex={80}
+            zIndex={40}
         >
                 <NavItem 
                     icon={

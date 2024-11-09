@@ -70,6 +70,18 @@
   .btn::after {
     @apply absolute w-8 h-8 flex justify-center items-center
   }
+  .loader {
+    @apply fixed top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center bg-[url(/loader-img.png)] bg-cover w-full h-auto bg-center bg-no-repeat z-50 
+  }
+  .spinnerContainer {
+    @apply relative flex justify-center items-center
+  }
+  .spinner {
+    @apply absolute border-[6px] border-solid border-white border-opacity-30 border-t-[#fff] justify-center items-center
+  }
+  .centerImage {
+    @apply w-20 h-20 relative z-10
+  }
 }
 
 * {
