@@ -41,17 +41,11 @@ const CatLevels = () => {
                 key={id}
               >
                 <div className="w-[25%] h-auto flex items-center justify-center">
-                  <video 
+                <img 
                     src={video} 
+                    alt="gif"
                     className="w-full h-auto bg-[#000807] rounded-2xl p-1"
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
-                    preload="auto"
-                    >
-                      Your Browser doesn't support.
-                  </video>
+                  />
                 </div>
                 <Box
                   display={"flex"}
