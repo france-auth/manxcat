@@ -29,7 +29,7 @@ const Shop = () => {
           gap={5}
         >
           <Text fontSize={"25px"} fontWeight={700} color={"#000807"} className="font-bold">
-            CAT LEVEL INFORMATION
+            SHOP
           </Text>
           {LevelList.map(({video, price, points, level}, id) => {
             return (
