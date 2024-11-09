@@ -49,7 +49,7 @@ const balances = [
 
 const Wallet = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [isConnected] = useState<boolean>(false); // i removed 'setIsConnected to avoid errors because i didn't need the function'
+  const [isConnected] = useState<boolean>(true); // i removed 'setIsConnected to avoid errors because i didn't need the function'
   const toggle = () => setIsOpen((isOpen) => !isOpen)
   //const toggleConnect = () => setIsConnected((isOpen) => !isOpen)
   const userWallet = "YQXH........AQ8";
