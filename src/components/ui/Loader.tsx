@@ -65,7 +65,7 @@ const Loader = () => {
         const handleLoad = () => {
             setTimeout(() => {
                 setLoading(false);
-            }, 5000); // Simulated loading time of 3 seconds
+            }, 3000); // Simulated loading time of 3 seconds
         };
 
         // Check if the window has loaded

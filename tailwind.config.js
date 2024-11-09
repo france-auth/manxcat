@@ -16,7 +16,7 @@ export default {
       },
       animation: {
         fadeIn: 'fadeIn .5s ease-in',
-        spin: 'spin 5s linear infinite', // You can customize the speed or other properties here
+        spin: 'spin 3s linear infinite', // You can customize the speed or other properties here
       },
       keyframes: {
         fadeIn: {
