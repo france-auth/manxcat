@@ -11,7 +11,7 @@ import {
 import "./index.css";
 
 import Homepage from "./Pages/Homepage";
-import CatLevel from "./Pages/CatLevels";
+import CatLevels from "./Pages/CatLevels";
 import Lobby from "./Pages/Lobby";
 import LobbyRules from "./Pages/LobbyRule";
 import PlaceBet from "./Pages/PlaceBet";
@@ -65,7 +65,7 @@ function App() {
     <Box width={"100vw"} overflowX={"hidden"}>
       <Routes>
         <Route index element={<Homepage />} />
-        <Route path="/level" element={<CatLevel />} />
+        <Route path="/level" element={<CatLevels />} />
         <Route path="/lobby" element={<Lobby />} />
         <Route path="/stake" element={<PlaceBet />} />
         <Route path="/rules" element={<LobbyRules />} />

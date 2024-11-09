@@ -1,24 +1,18 @@
-import React from "react";
+
+import React from "react"
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { LevelList } from "../data";
 
-export default function CatLevel() {
+const CatLevels = () => {
   return (
-    <Box
+    <main className="apply_page-style px-5">
+      <Box
       display={"flex"}
       flexDirection={"column"}
-      bgImage={"/background.png"}
-      bgColor={"#EFD0CA"}
-      bgRepeat={"no-repeat"}
-      bgPosition={"center"}
-      bgSize={"cover"}
-      width={"100vw"}
-      minHeight={"100vh"}
-      alignItems={"center"}
       py={2}
     >
       <Flex
-        width={"100%"}
+        width={"full"}
         height={"100%"}
         flexDirection={"column"}
         pb={24}
@@ -28,67 +22,60 @@ export default function CatLevel() {
         mt={5}
       >
         <Box
-          width={"95%"}
+          width={"full"}
           display={"flex"}
           flexDirection={"column"}
           alignItems={"center"}
           justifyContent={"center"}
           gap={5}
         >
-          <Text fontSize={"24px"} fontWeight={400} color={"#000807"}>
+          <Text fontSize={"25px"} fontWeight={700} color={"#000807"} className="font-bold">
             CAT LEVEL INFORMATION
           </Text>
-          {LevelList.map((level) => {
+          {LevelList.map(({video, points, level}, id) => {
             return (
               <Box
-                border={"3px solid #000807"}
-                height={"128px"}
-                w={"95%"}
+                border={"1px solid #000807"}
                 bg={"#efd0ca"}
-                borderRadius={"20px"}
-                alignItems={"center"}
-                display={"flex"}
-                justifyContent={"space-around"}
+                className="w-full py-5 flex items-center justify-around rounded-2xl"
+                key={id}
               >
-                <video 
-                  src={level.video} 
-                  className="w-full h-auto block z-50"
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline 
-                  >
-                    Your Browser doesnt support.
-                </video>
+                <div className="w-[25%] h-auto flex items-center justify-center">
+                  <video 
+                    src={video} 
+                    className="w-full h-auto bg-[#000807] rounded-2xl p-1"
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    preload="auto"
+                    >
+                      Your Browser doesn't support.
+                  </video>
+                </div>
                 <Box
-                  w={{base:"70%", sm:"244px"}}
-                  h={"128px"}
                   display={"flex"}
                   flexDirection={"column"}
-                  p={"15px"}
                   justifyContent={"space-between"}
+                  className="gap-5 xx:w-[65%] xr:w-[60%]"
                 >
-                  <Flex justifyContent={"space-between"} alignItems={"center"}>
+                  <Flex className="flex justify-between items-center w-full">
                     <Text
-                      fontSize={"20px"}
-                      fontWeight={400}
-                      letterSpacing={{base:"0px",sm:"1px"}}
+                      fontSize={"18px"}
+                      fontWeight={700}
                       color={"#000807"}
                     >
-                      LEVEL {level.level} CAT
+                      LEVEL {level} CAT
                     </Text>
-                    <Text fontSize={"15px"} fontWeight={"700"}>
-                      {level.points} / 3 hr
+                    <Text fontSize={"13px"} fontWeight={"500"}>
+                      {points} / 3 hr
                     </Text>
                   </Flex>
                   <Button
-                    w={{base:"98%", sm: "224px"}}
-                    height={"48px"}
                     borderRadius={"500px"}
-                    border={"5px solid #000807"}
+                    border={"3px solid #000807"}
                     bg={"#efd0ca"}
                     textColor={"#000807"}
-                    p={"15px 10px"}
                   >
                     BUY
                   </Button>
@@ -99,5 +86,8 @@ export default function CatLevel() {
         </Box>
       </Flex>
     </Box>
-  );
+    </main>
+  )
 }
+
+export default CatLevels
