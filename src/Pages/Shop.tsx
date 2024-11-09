@@ -47,7 +47,7 @@ const Shop = () => {
                     muted 
                     playsInline 
                     >
-                      Your Browser doesnt support.
+                      Your Browser doesn't support.
                   </video>
                 </div>
                 <Box
