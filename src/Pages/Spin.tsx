@@ -1,7 +1,7 @@
 import React from "react"
 import { Button, Image } from "@chakra-ui/react"
 //import { useState } from "react";
-import SpinWheel from "../components/SpinWheel"
+//import SpinWheel from "../components/SpinWheel"
 
 const Spin = () => {
   /*  const [spinState, setSpinState] = useState<boolean>(false);
@@ -9,7 +9,7 @@ const Spin = () => {
   return (
     <main className="page-style">
       <div className="flex flex-col items-center">
-        <SpinWheel />
+        {/* <SpinWheel /> */}
         <img 
           src="/wallets/spin.png" 
           alt="spin wheel" 
