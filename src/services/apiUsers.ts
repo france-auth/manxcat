@@ -1,25 +1,29 @@
 import axios from "axios";
+import { storage } from "../utils/helpers";
 
-const BASE_URL = "https://0b57-105-115-0-188.ngrok-free.app/api/v1/users";
+const BASE_URL = "http://localhost:3000/api/v1/users";
+
+export type OwnedCatType = {
+  catId: string;
+  outputQuantityTime: number;
+  numberOwned: number;
+};
 
 interface IUser {
   name: string;
   telegramId: number;
-  coinsEarned: number;
+  manxEarned: number;
+  goldEarned: number;
   referrals: Array<string>;
   referralCode: string;
   referredBy: string;
+  ownedCats: OwnedCatType[];
 }
 
-function storage() {
-  const token = localStorage.getItem("manxcattoken");
-
-  return token;
-}
+const token = storage();
 
 async function getAllUsers() {
   try {
-    const token = storage();
     const resp = await axios.get(BASE_URL, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -61,7 +65,6 @@ async function createGetUser({
 }
 
 async function getUser(telegramId: number): Promise<IUser> {
-  const token = storage();
   const resp = await axios.get(`${BASE_URL}/${telegramId}`, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -80,7 +83,6 @@ type FarmType = {
 };
 
 async function farm(telegramId: number): Promise<FarmType> {
-  const token = storage();
   const resp = await axios.post(
     `${BASE_URL}/farm/${telegramId}`,
     {},
@@ -90,7 +92,6 @@ async function farm(telegramId: number): Promise<FarmType> {
 }
 
 async function startFarm(telegramId: number): Promise<FarmType> {
-  const token = storage();
   const resp = await axios.post(
     `${BASE_URL}/farm/start/${telegramId}`,
     {},
@@ -101,7 +102,6 @@ async function startFarm(telegramId: number): Promise<FarmType> {
 }
 
 async function claimFarmRewards(telegramId: number): Promise<FarmType> {
-  const token = storage();
   const resp = await axios.post(
     `${BASE_URL}/farm/claim/${telegramId}`,
     {},
@@ -117,8 +117,6 @@ type DailyRewards = {
 };
 
 async function updateDailyRewards(telegramId: number): Promise<DailyRewards> {
-  const token = storage();
-
   const resp = await axios.post(
     `${BASE_URL}/daily/${telegramId}`,
     {},
@@ -129,8 +127,6 @@ async function updateDailyRewards(telegramId: number): Promise<DailyRewards> {
 }
 
 async function resetDailyRewards(telegramId: number): Promise<DailyRewards> {
-  const token = storage();
-
   const resp = await axios.post(
     `${BASE_URL}/daily/reset/${telegramId}`,
     {},

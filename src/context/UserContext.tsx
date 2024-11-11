@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import WebApp from "@twa-dev/sdk";
 import {
   createContext,
@@ -10,16 +10,19 @@ import {
   useState,
 } from "react";
 import { useSearchParams } from "react-router-dom";
-import { createGetUser } from "../services/apiUsers";
+import { createGetUser, OwnedCatType } from "../services/apiUsers";
 
 type UserType = {
   name: string;
   id: number;
   coinsEarned: number;
+  manxEarned: number;
   isLoading: boolean;
+  ownedCats: OwnedCatType[];
   setCoinsEarned: Dispatch<SetStateAction<number>>;
   setName: Dispatch<SetStateAction<string>>;
   setId: Dispatch<SetStateAction<number>>;
+  setManxEarned: Dispatch<SetStateAction<number>>;
 };
 
 const userContext = createContext<UserType>({
@@ -27,22 +30,27 @@ const userContext = createContext<UserType>({
   id: 0,
   coinsEarned: 0,
   isLoading: true,
+  manxEarned: 0,
+  ownedCats: [],
   setName() {},
   setId() {},
   setCoinsEarned() {},
+  setManxEarned() {},
 });
 
 function UserContext({ children }: { children: ReactNode }) {
   const [name, setName] = useState("");
   const [id, setId] = useState(0);
   const [coinsEarned, setCoinsEarned] = useState(0);
+  const [manxEarned, setManxEarned] = useState(0);
   const [params] = useSearchParams();
   const [isLoading, setIsLoading] = useState(true);
   const referralId = params.get("referralId");
+  const [ownedCats, setOwnedCats] = useState<OwnedCatType[]>([]);
 
   useEffect(() => {
-    const name = WebApp.initDataUnsafe.user?.first_name || "Me";
-    const telegramId = WebApp.initDataUnsafe.user?.id || 27873818099;
+    const name = WebApp.initDataUnsafe.user?.first_name;
+    const telegramId = WebApp.initDataUnsafe.user?.id;
     if (!name || !telegramId) {
       return console.log("Open mini app in telegram");
     }
@@ -56,7 +64,9 @@ function UserContext({ children }: { children: ReactNode }) {
           referredBy: referralId || "",
         });
         if (data) {
-          setCoinsEarned(data.coinsEarned);
+          setCoinsEarned(data.goldEarned);
+          setManxEarned(data.manxEarned);
+          setOwnedCats(data.ownedCats);
         }
         setIsLoading(false);
       } catch (error) {
@@ -73,9 +83,12 @@ function UserContext({ children }: { children: ReactNode }) {
         name,
         id,
         coinsEarned,
+        manxEarned,
+        ownedCats,
         setName,
         setId,
         setCoinsEarned,
+        setManxEarned,
       }}
     >
       {children}
