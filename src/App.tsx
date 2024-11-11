@@ -31,6 +31,8 @@ import DailySignIn from "./Pages/DailySignIn";
 import Shop from "./Pages/Shop";
 import UserContext from "./context/UserContext";
 import Loader from "./components/ui/Loader";
+import IdModal from "./components/IdModal";
+import { useState } from "react";
 
 function BackButtonHandler() {
   const location = useLocation(); // Use React Router's useLocation to track route changes
@@ -62,6 +64,9 @@ function BackButtonHandler() {
 }
 
 function App() {
+  const [showModal, setShowModal] = useState<boolean>(false);
+
+  const closeModal = () => setShowModal(false);
   return (
     <Box width={"100vw"} overflowX={"hidden"}>
       <Routes>
@@ -82,7 +87,8 @@ function App() {
         <Route path="/withdraw" element={<WithdrawCoin />} />
         <Route path="/swap" element={<SwapCoin />} />
         <Route path="/daily-signin" element={<DailySignIn />} />
-        <Route path="/shop" element={<Shop />} />
+        <Route path="/levels" element={<Shop />} />
+        <Route path="/id" element={<IdModal isOpen={() => showModal} isClosed={closeModal} />} />
       </Routes>
     </Box>
   );
