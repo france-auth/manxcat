@@ -43,7 +43,7 @@ const Shop = () => {
                   <img 
                     src={video} 
                     alt="gif"
-                    className="w-full h-auto bg-[#000807] rounded-2xl p-1"
+                    className="w-full h-auto bg-transparent rounded-2xl p-1"
                   />
                 </div>
                 <Box
