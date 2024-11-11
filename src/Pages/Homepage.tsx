@@ -31,8 +31,6 @@ export default function Homepage() {
       bgSize={"cover"}
       minHeight={"100vh"}
       alignItems={"center"}
-      py={2}
-      px={2}
     >
       <Flex
         width={"100%"}
@@ -42,108 +40,23 @@ export default function Homepage() {
         gap={5}
         alignItems={"center"}
         justifyContent={"center"}
-        mt={5}
       >
         <Header />
         <Box display={"flex"} alignItems={"center"} justifyContent={"center"}>
-          <Box display={"flex"} alignItems={"center"} mt={6}>
+          <Box display={"flex"} justifyContent={"center"} flexDirection={"column"} className="w-full gap-4 justify-center items-center">
             <Flex
-              gap={"60px"}
-              flexDirection={"column"}
-              w={"50px"}
-              height={"314px"}
-              zIndex={10}
+              className="bg-[#EB8A90] w-screen justify-around flex items-center py-2 px-1"
             >
               <Box
                 color={"#000807"}
                 fontWeight={400}
                 fontSize={"10px"}
-                alignItems={"center"}
                 display={"flex"}
-                flexDirection={"column"}
-                w={"49px"}
-                h={"65px"}
-                gap={"2px"}
-                py={"5px"}
-              >
-                <Image src="/info.png" />
-                <Text fontWeight={"700"}>ABOUT</Text>
-              </Box>
-              <Box
-                color={"#000807"}
-                fontWeight={400}
-                fontSize={"10px"}
-                alignItems={"center"}
-                display={"flex"}
-                flexDirection={"column"}
-                w={"49px"}
-                h={"65px"}
-                gap={"2px"}
-                py={"5px"}
-              >
-                <Link to={"/lobby"} className="flex flex-col items-center">
-                  <Image src="/console.png" />
-                  <Text fontWeight={"700"}>GAME</Text>
-                </Link>
-              </Box>
-              <Box
-                color={"#000807"}
-                fontWeight={400}
-                fontSize={"10px"}
-                alignItems={"center"}
-                justifyContent={"center"}
-                display={"flex"}
-                flexDirection={"column"}
-                w={"49px"}
-                h={"65px"}
-                gap={"2px"}
-                py={"5px"}
-              >
-                <Link to={"/spin"} className="flex flex-col items-center">
-                  <Image src="/console.png" />
-                  <Text fontWeight={"700"}>SPIN</Text>
-                </Link>
-              </Box>
-            </Flex>
-            <Flex
-              width={"240px"}
-              h={"300px"}
-              alignItems={"center"}
-              justifyContent={"center"}
-              flexDirection={"column"}
-              position={"relative"}
-            >
-              <Image
-                src="/manx.png"
-                w={"95%"}
-                maxW={"97%"}
-                position={"absolute"}
-                top={5}
-              />
-            </Flex>
-            <Flex
-              gap={"60px"}
-              flexDirection={"column"}
-              w={"50px"}
-              height={"314px"}
-              zIndex={10}
-            >
-              <Box
-                color={"#000807"}
-                fontWeight={400}
-                fontSize={"10px"}
-                alignItems={"center"}
-                display={"flex"}
-                flexDirection={"column"}
-                w={"49px"}
-                h={"65px"}
-                gap={"2px"}
-                py={"5px"}
                 textAlign={"center"}
               >
                 <Link
                   to={"/daily-signin"}
-                  className="flex flex-col items-center"
+                  className="flex flex-col items-center gap-1"
                 >
                   <Image src="/calendar.png" />
                   <Text fontWeight={"700"}>DAILY SIGNIN</Text>
@@ -155,14 +68,14 @@ export default function Homepage() {
                 fontSize={"10px"}
                 alignItems={"center"}
                 display={"flex"}
-                flexDirection={"column"}
-                w={"49px"}
-                h={"65px"}
-                gap={"2px"}
-                py={"5px"}
               >
-                <Image src="/warehouse.png" />
-                <Text fontWeight={"700"}>WAREHOUSE</Text>
+                <Link
+                  to={"/"}
+                  className="flex flex-col items-center gap-1"
+                >
+                  <Image src="/warehouse.png" />
+                  <Text fontWeight={"700"}>WAREHOUSE</Text>
+                </Link>
               </Box>
               <Box
                 color={"#000807"}
@@ -171,14 +84,39 @@ export default function Homepage() {
                 alignItems={"center"}
                 display={"flex"}
                 flexDirection={"column"}
-                w={"49px"}
-                h={"65px"}
-                gap={"2px"}
-                py={"5px"}
               >
-                <Image src="/calendar.png" />
-                <Text fontWeight={"700"}>AUTO</Text>
+                <Link
+                  to={"/"}
+                  className="flex flex-col items-center gap-1"
+                >
+                  <Image src="/calendar.png" />
+                  <Text fontWeight={"700"}>AUTO</Text>
+                </Link>
               </Box>
+            </Flex>
+            <Box className="flex flex-col justify-center items-center gap-2">
+              <Box className="w-max flex items-center justify-center gap-1">
+                <Image src="/coin.png" />
+                <Text className="text-2xl font-bold">
+                  45,000
+                </Text>
+              </Box>
+              <Box className="flex justify-center items-center gap-1">
+                <Image src="/levelcat-homepage.png" w={"31px"} h={"32px"} />
+                <Text className="text-lg font-bold">
+                  Level 1
+                </Text>
+              </Box>
+            </Box>
+            <Flex
+              flexDirection={"row"}
+              display={"flex"}
+              className="border-[10px] border-[#EB8A90]  bg-[#EFD0CA] rounded-full p-5 justify-center items-center w-64 h-auto z-40"
+            >
+              <Image
+                src="/manx.png"
+                className="w-full h-auto max-w-[97%]"
+              />
             </Flex>
           </Box>
         </Box>
@@ -207,7 +145,7 @@ export default function Homepage() {
             fontSize={"12px"}
             fontWeight={"400"}
           >
-            PLAY NOW
+            WATCH ADS
             <Image src="/play.png" />
           </Button>
           <Button
@@ -227,12 +165,12 @@ export default function Homepage() {
               <Spinner />
             ) : farming ? (
               ended ? (
-                "claim rewards"
+                "Claim Rewards"
               ) : (
                 "Farming..."
               )
             ) : (
-              "Farm"
+              "Farming"
             )}
             {farming && (
               <>
