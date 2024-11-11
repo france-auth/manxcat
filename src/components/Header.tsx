@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Flex, Icon, Image, Text } from "@chakra-ui/react";
 import { FaPlus } from "react-icons/fa6";
-import { Link } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
+import IdModal from "./IdModal";
 
 export default function Header() {
   const { coinsEarned, manxEarned } = useUserContext();
+  const [showModal, setShowModal] = useState<boolean>(false);
+
+  const openModal = () => setShowModal(true);
+  const closeModal = () => setShowModal(false);
+
   return (
     <Box
       display={"flex"}
@@ -25,10 +30,12 @@ export default function Header() {
         p={"10px"}
         w={"80px"}
         className="cursor-pointer"
+        onClick={openModal}
       >
-        <Link to={"/level"} className="w-[100%]">
+        <IdModal isOpen={() => showModal} isClosed={closeModal} />
+        <Box className="w-[100%]">
           <Image src="/sm-cat.png" />
-        </Link>
+        </Box>
       </Box>
       <Flex
         display={"flex"}

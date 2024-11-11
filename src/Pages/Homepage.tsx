@@ -99,8 +99,10 @@ export default function Homepage() {
                 </Text>
               </Box>
               <Box className="flex justify-center items-center gap-1">
-                <Image src="/levelcat-homepage.png" w={"31px"} h={"32px"} />
-                <Text className="text-lg font-bold">Level 1</Text>
+                <Link to={"/levels"}>
+                  <Image src="/levelcat-homepage.png" w={"31px"} h={"32px"} />
+                  <Text className="text-lg font-bold">Level 1</Text>
+                </Link>
               </Box>
             </Box>
             <Flex
