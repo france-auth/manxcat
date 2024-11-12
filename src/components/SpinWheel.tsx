@@ -4,11 +4,14 @@ import { Box, Button, Flex, Text,  } from "@chakra-ui/react";
 import { Wheel } from "react-custom-roulette";
 
 const data = [
-  { option: "100" },
-  { option: "200" },
-  { option: "300" },
+  { option: "MANX" },
   { option: "400" },
+  { option: "USDT" },
   { option: "500" },
+  {
+    option: "",
+    image: { uri: "/coin.png", offsetY: 180, sizeMultiplier: 0.5 },
+  },
   { option: "600" },
   { option: "700" },
   { option: "800" },
@@ -44,7 +47,8 @@ export default function Spinwheel() {
       minHeight={"100vh"}
       alignItems={"center"}
       textColor={"white"}
-      overflow={"hidden"}
+      overflowY={"hidden"}
+     
     >
       <Flex
         width={"100%"}
@@ -52,9 +56,9 @@ export default function Spinwheel() {
         flexDirection={"column"}
         alignItems={"center"}
         justifyContent={"center"}
-        pt={12}
+        pt={5}
         gap={{ base: 5, sm: 14 }}
-        pb={32}
+        overflowY={"hidden"}
       >
         <Box
           bg={
@@ -82,7 +86,7 @@ export default function Spinwheel() {
               mustStartSpinning={mustSpin}
               prizeNumber={prizeNumber}
               data={data}
-              textColors={["white"]}
+              textColors={["black"]}
               fontSize={32}
               backgroundColors={[
                 "#FE7A18",
@@ -115,46 +119,24 @@ export default function Spinwheel() {
           Spin and Win!
         </Button>
 
-        <Flex
-          alignItems={"center"}
-          gap={2}
-          w={"292px"}
-          h={"39px"}
-          mt={{ base: 1, sm: -10 }}
-          justifyContent={"center"}
-        >
-          <Box w={"6px"} h={"6px"} bg={"#8D9094"} borderRadius={"50%"} />
-          <Box w={"6px"} h={"6px"} bg={"#8D9094"} borderRadius={"50%"} />
-
-          <Text fontWeight={500} fontSize={"12px"} color={"#999999"}>
-            You get one attempt per day, make it count
-          </Text>
-
-          <Box w={"6px"} h={"6px"} bg={"#8D9094"} borderRadius={"50%"} />
-          <Box w={"6px"} h={"6px"} bg={"#8D9094"} borderRadius={"50%"} />
-        </Flex>
-
-        {/* <div className="flex flex-col items-center w-screen py-4 gap-3">
+        <div className="flex flex-col items-center bg-[#EFD0CA80] w-full py-4 gap-2">
           <p className="text-xs font-medium">AVAILABLE SPIN</p>
           <p className="text-xl font-extrabold">01</p>
           <p className="text-xs font-medium">WATCH ADS TO GET MORE SPINS</p>
           <Button
-            mb={3}
             bgColor={"#EFD0CA"}
             border={"4px solid #000807"}
             borderRadius={"500px"}
             w={"60%"}
-            h={"36px"}
+            h={"16px"}
             p={"15px 10px"}
-            gap={4}
             fontSize={"12px"}
             fontWeight={"800"}
           >
             PLAY NOW
-           
           </Button>
           <p className="text-xs font-medium">4 of 5 videos watched</p>
-        </div> */}
+        </div>
       </Flex>
     </Box>
   );

@@ -28,6 +28,10 @@
   .page-style {
     @apply flex flex-col items-center min-h-screen bg-custom-image w-full p-5
   }
+
+  .page-spin {
+          @apply flex flex-col items-center bg-custom-image w-full 
+        }
   .apply_page-style {
     @apply flex flex-col min-h-screen bg-custom-image w-full py-5
   }

@@ -6,7 +6,7 @@ const Spin = () => {
   /*  const [spinState, setSpinState] = useState<boolean>(false);
   const spinWheel = () => setSpinState((prev) => !prev) */
   return (
-    <main className="page-style">
+    <main className="page-spin">
       <div className="flex flex-col items-center">
         <SpinWheel />
       </div>
