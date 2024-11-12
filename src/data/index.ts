@@ -101,32 +101,32 @@ interface Friends {
 }
 export const friends: Friends[] = [
   {
-    pfp: "/friends/Macaco-NFT.mp4",
+    pfp: "/friends/Macaco-NFT.png",
     name: "ALCH3MY",
     balance: 13023
   },
   {
-    pfp: "/friends/Metaforge.mp4",
+    pfp: "/friends/Metaforge.png",
     name: "METAFORGE",
     balance: 13023
   },
   {
-    pfp: "/friends/Quantumtoken.mp4",
+    pfp: "/friends/Quantumtoken.png",
     name: "QUANTUMTOKEN",
     balance: 13023
   },
   {
-    pfp: "/friends/Digiorbit.mp4",
+    pfp: "/friends/Digiorbit.png",
     name: "DIGIORBIT",
     balance: 13023
   },
   {
-    pfp: "/friends/Novahash.mp4",
+    pfp: "/friends/Novahash.png",
     name: "NOVAHASH",
     balance: 13023
   },
   {
-    pfp: "/friends/Pudgypenguin.mp4",
+    pfp: "/friends/Pudgypenguin.png",
     name: "ETHERWAVE",
     balance: 13023
   },
