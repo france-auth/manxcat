@@ -1,6 +1,6 @@
 
 import React, { useState, } from "react";
-import { Box, Button, Flex, Text,  } from "@chakra-ui/react";
+import { Box, Button, Flex } from "@chakra-ui/react";
 import { Wheel } from "react-custom-roulette";
 
 const data = [
