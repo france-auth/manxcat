@@ -98,12 +98,12 @@ export default function Homepage() {
                   {manxEarned.toLocaleString()}
                 </Text>
               </Box>
-              <Box className="flex justify-center items-center gap-1">
-                <Link to={"/levels"}>
+              <Link to={"/levels"}>
+                <Box className="flex justify-center items-center gap-1">
                   <Image src="/levelcat-homepage.png" w={"31px"} h={"32px"} />
                   <Text className="text-lg font-bold">Level 1</Text>
-                </Link>
-              </Box>
+                </Box>
+              </Link>
             </Box>
             <Flex
               flexDirection={"row"}
