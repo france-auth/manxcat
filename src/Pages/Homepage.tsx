@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { Box, Button, Flex, Image, Spinner, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
@@ -7,7 +7,7 @@ import { useFarm } from "../hooks/useFarm";
 import { useUserContext } from "../context/UserContext";
 import Loader from "../components/ui/Loader";
 export default function Homepage() {
-  const { isLoading: initializing } = useUserContext();
+  const { isLoading: initializing, manxEarned } = useUserContext();
   const {
     isLoading,
     startFarming,
@@ -43,10 +43,13 @@ export default function Homepage() {
       >
         <Header />
         <Box display={"flex"} alignItems={"center"} justifyContent={"center"}>
-          <Box display={"flex"} justifyContent={"center"} flexDirection={"column"} className="w-full gap-4 justify-center items-center">
-            <Flex
-              className="bg-[#EB8A90] w-screen justify-around flex items-center py-2 px-1"
-            >
+          <Box
+            display={"flex"}
+            justifyContent={"center"}
+            flexDirection={"column"}
+            className="w-full gap-4 justify-center items-center"
+          >
+            <Flex className="bg-[#EB8A90] w-screen justify-around flex items-center py-2 px-1">
               <Box
                 color={"#000807"}
                 fontWeight={400}
@@ -69,10 +72,7 @@ export default function Homepage() {
                 alignItems={"center"}
                 display={"flex"}
               >
-                <Link
-                  to={"/"}
-                  className="flex flex-col items-center gap-1"
-                >
+                <Link to={"/"} className="flex flex-col items-center gap-1">
                   <Image src="/warehouse.png" />
                   <Text fontWeight={"700"}>WAREHOUSE</Text>
                 </Link>
@@ -85,10 +85,7 @@ export default function Homepage() {
                 display={"flex"}
                 flexDirection={"column"}
               >
-                <Link
-                  to={"/"}
-                  className="flex flex-col items-center gap-1"
-                >
+                <Link to={"/"} className="flex flex-col items-center gap-1">
                   <Image src="/calendar.png" />
                   <Text fontWeight={"700"}>AUTO</Text>
                 </Link>
@@ -98,27 +95,22 @@ export default function Homepage() {
               <Box className="w-max flex items-center justify-center gap-1">
                 <Image src="/coin.png" />
                 <Text className="text-2xl font-bold">
-                  45,000
+                  {manxEarned.toLocaleString()}
                 </Text>
               </Box>
-              <Box className="flex justify-center items-center gap-1">
-                <Link to={"/levels"}>
+              <Link to={"/levels"}>
+                <Box className="flex justify-center items-center gap-1">
                   <Image src="/levelcat-homepage.png" w={"31px"} h={"32px"} />
-                  <Text className="text-lg font-bold">
-                    Level 1
-                  </Text>
-                </Link>
-              </Box>
+                  <Text className="text-lg font-bold">Level 1</Text>
+                </Box>
+              </Link>
             </Box>
             <Flex
               flexDirection={"row"}
               display={"flex"}
               className="border-[10px] border-[#EB8A90]  bg-[#EFD0CA] rounded-full p-5 justify-center items-center w-64 h-auto z-40"
             >
-              <Image
-                src="/manx.png"
-                className="w-full h-auto max-w-[97%]"
-              />
+              <Image src="/manx.png" className="w-full h-auto max-w-[97%]" />
             </Flex>
           </Box>
         </Box>
@@ -172,7 +164,7 @@ export default function Homepage() {
                 "Farming..."
               )
             ) : (
-              "Farming"
+              "Farm"
             )}
             {farming && (
               <>

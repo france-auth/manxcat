@@ -5,8 +5,9 @@ import {
   farm as farmApi,
   startFarm,
 } from "../services/apiUsers";
+import { useToast } from "@chakra-ui/react";
 function useFarm() {
-  const { id, setCoinsEarned } = useUserContext();
+  const { id, setCoinsEarned, ownedCats } = useUserContext();
   const [farming, setFarming] = useState<boolean>(false);
   const [ended, setEnded] = useState<boolean>(false);
   const [earned, setEarned] = useState<number>();
@@ -14,7 +15,15 @@ function useFarm() {
   const [totalHrs, setTotalHrs] = useState<number>();
   const [isLoading, setIsLoading] = useState(true);
 
+  const toast = useToast();
+
   const startFarming = async () => {
+    if (ownedCats.length == 0)
+      return toast({
+        title: "Buy a cat to start farming for manx token",
+        position: "top",
+        colorScheme: "green",
+      });
     try {
       const data = await startFarm(id);
       setFarming(data.started);
@@ -26,7 +35,7 @@ function useFarm() {
   const farm = async () => {
     try {
       const farmData = await farmApi(id);
-      //console.log(farmData);
+      console.log(farmData);
       setFarming(farmData.started);
       setEarned(farmData.earned);
       setEnded(farmData.ended);
@@ -53,7 +62,6 @@ function useFarm() {
     const intervalId = setInterval(async () => {
       await farm();
       if (!farming) {
-        //setFarming(false);
         clearInterval(intervalId);
       }
     }, 1000);
