@@ -4,7 +4,7 @@ import { Box, Button, Flex, Text,  } from "@chakra-ui/react";
 import { Wheel } from "react-custom-roulette";
 
 const data = [
-  { option: "100" },
+  { option: "100", image: {uri: "/coin.png"} },
   { option: "200" },
   { option: "300" },
   { option: "400" },
