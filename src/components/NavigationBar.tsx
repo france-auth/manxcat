@@ -65,9 +65,9 @@ const NavigationBar: React.FC = () => {
                     icon={
                         <Image src="/shop.png"/>
                     }
-                    label="SHOP"
+                    label="SPIN"
                     isActive={location.pathname === "/shop"}
-                    to="/shop"
+                    to="/spin"
                 />
                 <NavItem 
                     icon={
