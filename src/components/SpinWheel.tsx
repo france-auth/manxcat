@@ -4,7 +4,7 @@ import { Box, Button, Flex, Text,  } from "@chakra-ui/react";
 import { Wheel } from "react-custom-roulette";
 
 const data = [
-  { option: "100", image: {uri: "/coin.png"} },
+  { option: "100" },
   { option: "200" },
   { option: "300" },
   { option: "400" },
@@ -39,7 +39,7 @@ export default function Spinwheel() {
     <Box
       display={"flex"}
       flexDirection={"column"}
-      bgGradient={"linear-gradient(360deg, #00283A 0%, #12161E 88.17%)"}
+      // bgGradient={"linear-gradient(360deg, #00283A 0%, #12161E 88.17%)"}
       width={"100vw"}
       minHeight={"100vh"}
       alignItems={"center"}
@@ -56,9 +56,6 @@ export default function Spinwheel() {
         gap={{ base: 5, sm: 14 }}
         pb={32}
       >
-        <Text color={"#93BAFF"} fontWeight={"700"} fontSize={"24px"}>
-          Resource Roulette
-        </Text>
         <Box
           bg={
             "linear-gradient(225deg, #FEDC31 16%, #FDC448 22.31%, #FC8682 35.67%, #FA2CD7 53.31%, #987CDB 70.57%, #33D0E0 87.83%)"
@@ -114,10 +111,8 @@ export default function Spinwheel() {
           color={"#f5f5f5"}
           borderRadius={"20px"}
           _hover={{ bg: "#4979d1", outline: "none" }}
-          
         >
-           Spin and Win!
-           
+          Spin and Win!
         </Button>
 
         <Flex
@@ -138,8 +133,29 @@ export default function Spinwheel() {
           <Box w={"6px"} h={"6px"} bg={"#8D9094"} borderRadius={"50%"} />
           <Box w={"6px"} h={"6px"} bg={"#8D9094"} borderRadius={"50%"} />
         </Flex>
+
+        {/* <div className="flex flex-col items-center w-screen py-4 gap-3">
+          <p className="text-xs font-medium">AVAILABLE SPIN</p>
+          <p className="text-xl font-extrabold">01</p>
+          <p className="text-xs font-medium">WATCH ADS TO GET MORE SPINS</p>
+          <Button
+            mb={3}
+            bgColor={"#EFD0CA"}
+            border={"4px solid #000807"}
+            borderRadius={"500px"}
+            w={"60%"}
+            h={"36px"}
+            p={"15px 10px"}
+            gap={4}
+            fontSize={"12px"}
+            fontWeight={"800"}
+          >
+            PLAY NOW
+           
+          </Button>
+          <p className="text-xs font-medium">4 of 5 videos watched</p>
+        </div> */}
       </Flex>
-     
     </Box>
   );
 }
