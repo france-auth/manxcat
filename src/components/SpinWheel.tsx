@@ -106,20 +106,17 @@ export default function Spinwheel() {
         </Box>
         <Button
           onClick={handleSpinClick}
-          w={"342px"}
-          h={"49px"}
-          bg={"#4979d1"}
+          className="w-60 text-center flex items-center text-xl font-bold"
+          bg={"#EB8A90"}
           boxShadow={"0px -2px 8px 0px #F8F9FD33 inset"}
-          fontSize={"24px"}
-          fontWeight={700}
           color={"#f5f5f5"}
           borderRadius={"20px"}
-          _hover={{ bg: "#4979d1", outline: "none" }}
+          _hover={{ bg: "#EB8A90", outline: "none" }}
         >
           Spin and Win!
         </Button>
 
-        <div className="flex flex-col items-center bg-[#EFD0CA80] w-full py-4 gap-2">
+        <div className="text-[#000807] flex flex-col items-center bg-[#EFD0CA80] w-full py-4 gap-2">
           <p className="text-xs font-medium">AVAILABLE SPIN</p>
           <p className="text-xl font-extrabold">01</p>
           <p className="text-xs font-medium">WATCH ADS TO GET MORE SPINS</p>
