@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import NavigationBar from "../components/NavigationBar";
 import { useFarm } from "../hooks/useFarm";
 import { useUserContext } from "../context/UserContext";
-import Loader from "../components/ui/Loader";
+import Loader from "../components/ui/Loader"; 
 export default function Homepage() {
   const { isLoading: initializing, manxEarned } = useUserContext();
   const {
