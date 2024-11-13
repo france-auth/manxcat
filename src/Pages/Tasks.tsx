@@ -1,8 +1,19 @@
-import Button from "../components/ui/Button"
-import TaskCards from "../components/ui/TaskCards"
-import React from "react"
+import Button from "../components/ui/Button";
+import TaskCards from "../components/ui/TaskCards";
+import React, { useEffect, useState } from "react";
+import { getAllTasks, ITask } from "../services/apiTasks";
 
 const Tasks = () => {
+  const [tasks, setTasks] = useState<ITask[]>();
+  useEffect(() => {
+    const getTasks = async () => {
+      const allTasks = await getAllTasks();
+      setTasks(allTasks);
+    };
+    getTasks();
+
+    return () => {};
+  }, []);
   return (
     <main className="page-style">
       <div className="flex flex-col items-center">
@@ -15,9 +26,7 @@ const Tasks = () => {
           <h1 className="text-center font-extrabold text-[32px] mb-2">
             TASKS TO EARN
           </h1>
-          <p className="text-center text-sm">
-            Complete tasks to earn $MANX
-          </p>
+          <p className="text-center text-sm">Complete tasks to earn $MANX</p>
         </div>
       </div>
       <div className="flex flex-col mt-3">
@@ -30,13 +39,9 @@ const Tasks = () => {
             <span className="rectangle-span" />
             <span className="circle-span" />
             <span className="rectangle-span" />
-            <img
-              src="/ticket1.svg" 
-              alt="ticket" 
-              className="inline w-4 h-7" 
-            />
+            <img src="/ticket1.svg" alt="ticket" className="inline w-4 h-7" />
           </div>
-          <Button name="CLAIM"/>
+          <Button name="CLAIM" />
         </div>
         <div className="flex flex-col space-y-4 mt-8">
           <h1 className="text-center font-extrabold text-[25px] leading-8">
@@ -45,16 +50,17 @@ const Tasks = () => {
           <div className="cards flex flex-col items-center px-7 py-3 space-y-5">
             <div className="flex space-x-3">
               <div className="p-2 flex bg-[#EFD0CA] rounded-full justify-center items-center">
-                <img 
-                  src="/wallet.png" 
-                  alt="wallet" 
+                <img
+                  src="/wallet.png"
+                  alt="wallet"
                   className="w-10 h-8 justify-center"
                 />
               </div>
               <div className="flex flex-col justify-end">
                 <h1 className="font-extrabold text-sm">UPLOAD TASK</h1>
                 <p className="text-xs">
-                  Pass a background review, pay in USDT and your task will be published
+                  Pass a background review, pay in USDT and your task will be
+                  published
                 </p>
               </div>
             </div>
@@ -67,12 +73,12 @@ const Tasks = () => {
               TASKS
             </h1>
             <p className="text-xs">5 / 30 completed</p>
-            </div>
-            <TaskCards />
+          </div>
+          <TaskCards tasks={tasks} />
         </div>
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default Tasks
+export default Tasks;

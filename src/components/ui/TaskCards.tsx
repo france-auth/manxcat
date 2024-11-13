@@ -1,84 +1,84 @@
-import React from "react"
+import React, { useEffect, useState } from "react";
+import { completeTask, ITask } from "../../services/apiTasks";
+import { useUserContext } from "../../context/UserContext";
+import { Spinner, useToast } from "@chakra-ui/react";
 
-import { TaskList } from "../../data";
-import { useState } from "react"
+const TaskButton = ({ taskId }: { taskId: string }) => {
+  const { id, user } = useUserContext();
+  const toast = useToast();
 
-interface ButtonProps {
-  name: string
-  className?: string
-  onClick?: () => void
-}
-const TaskButton: React.FC<ButtonProps> = ({name, onClick, className}) => {
-  return (
-    <div className={`border-[3px] border-solid border-[#000807] rounded-full z-50 ${className}`}
-    >
-      <button
-      type="button"
-        onClick={onClick}
-        className="text-xs font-bold w-full flex items-center justify-center py-[6px] xs:px-3 xx:px-[18px]">
-        {name}
-      </button>
-    </div>
-  )
-}
+  const [isLoading, setIsLoading] = useState(false);
+  const [taskCompleted, setTaskCompleted] = useState(false);
+  const [completedTasks, setCompletedTasks] = useState<string[]>();
 
-const TaskCards = () => {
-  interface ButtonState {
-    label: string;
-    bgColor: string;
-  }
+  useEffect(() => {
+    const complete = user?.completedTasks;
+    setCompletedTasks(complete);
+  }, [user]);
 
-  const [buttonStates, setButtonStates] = useState<ButtonState[]>(
-    TaskList.map(() => ({
-      label: 'START', // Initial button text
-      bgColor: "bg-[#EB8A90]", // Initial button background color
-    }))
-  );
+  useEffect(() => {
+    if (completedTasks?.includes(taskId)) setTaskCompleted(true);
+  }, [taskId, completedTasks]);
 
-  const handleClick = (id: number) => {
-    const currentButtonState = buttonStates[id];
-    let nextLabel = '';
-    let nextBgColor = '';
+  const handleCompleteTask = async () => {
+    if (completedTasks == undefined) return setIsLoading(true);
+    try {
+      setIsLoading(true);
+      await completeTask(id, taskId);
 
-    // Logic to transition between states
-    if (currentButtonState.label === 'START') {
-      nextLabel = 'CHECK';
-      nextBgColor = 'bg-white';
-      setTimeout(() => updateButtonState(id, nextLabel, nextBgColor), 1000);
-    } else if (currentButtonState.label === 'CHECK') {
-      nextLabel = 'CLAIM';
-      nextBgColor = 'bg-[#42E2B8]';
-      setTimeout(() => updateButtonState(id, nextLabel, nextBgColor), 2000);
-    } else if (currentButtonState.label === 'CLAIM') {
-      nextLabel = 'COMPLETED';
-      nextBgColor = 'bg-[#EB8A90]';
-      updateButtonState(id, nextLabel, nextBgColor);
+      console.log({ taskId });
+      toast({
+        title: "Task completed successfully",
+        position: "top",
+        colorScheme: "green",
+      });
+      setTaskCompleted(true);
+
+      setCompletedTasks((curr) => [...curr!, taskId]);
+    } catch (error) {
+      console.log(error);
+      toast({
+        title: "Unable to complete task",
+        position: "top",
+        colorScheme: "orange",
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
+  return (
+    <div
+      className={`border-[3px] border-solid border-[#000807] rounded-full z-50 ${
+        taskCompleted ? "bg-emerald-500 text-white" : ""
+      }`}
+    >
+      <button
+        type="button"
+        className="text-xs font-bold w-full flex items-center justify-center py-[6px] xs:px-3 xx:px-[18px]"
+        onClick={handleCompleteTask}
+        disabled={taskCompleted || isLoading}
+      >
+        {isLoading ? <Spinner /> : taskCompleted ? "Done" : "Go"}
+      </button>
+    </div>
+  );
+};
 
-  const updateButtonState = (id: number, label: string, bgColor: string) => {
-    setButtonStates((prevStates) =>
-      prevStates.map((buttonState, i) =>
-        i === id ? { ...buttonState, label, bgColor } : buttonState
-      )
-    );
-  };
-
+const TaskCards = ({ tasks }: { tasks: ITask[] | undefined }) => {
   return (
     <div className="w-full flex flex-col items-center">
       <div className="w-full">
-        {TaskList.map(({title}, id) => (
-          <div key={id} 
+        {tasks?.map(({ title, reward, _id }) => (
+          <div
+            key={_id}
             className={`cards flex my-3 p-3 justify-between bg-[#EFD0CA80] 
-            ${buttonStates[id].label === "COMPLETED" 
-              ? "opacity-40" 
-              : ""}`
-          }>
+          `}
+          >
             <div className="flex gap-2">
               <div className="flex flex-col p-2 bg-[#EFD0CA] rounded-full justify-center">
-                <img 
-                  src="/wallet.png" 
-                  alt="wallet" 
+                <img
+                  src="/wallet.png"
+                  alt="wallet"
                   className="xs:w-6 xs:h-6 xr:w-8 xr:h-7"
                 />
               </div>
@@ -87,27 +87,22 @@ const TaskCards = () => {
                   {title}
                 </h1>
                 <div className="text-xs flex gap-2">
-                  <p className="">+500</p>
+                  <p className="">+{reward}</p>
                   <div className="flex gap-1">
-                    <img src="/coin.png" alt="coin" className="w-4"/>
+                    <img src="/coin.png" alt="coin" className="w-4" />
                     <p>GOLD COINS</p>
                   </div>
                 </div>
               </div>
             </div>
             <div className="flex items-center">
-              <TaskButton 
-                name={buttonStates[id].label} 
-                className={buttonStates[id].bgColor}
-                onClick={() => handleClick(id)}
-              />
+              <TaskButton taskId={_id} />
             </div>
           </div>
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-
-export default TaskCards
+export default TaskCards;
