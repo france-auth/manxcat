@@ -12,7 +12,7 @@ export default IdModal; */
 
 type IdModalProps = {
     isOpen: () => boolean | void;
-    isClosed: () => boolean | void;
+    isClosed: () =>  void;
 };
 
 import React from 'react'

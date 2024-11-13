@@ -32,7 +32,7 @@ export default function Header() {
         className="cursor-pointer"
         onClick={openModal}
       >
-        <IdModal isOpen={() => showModal} isClosed={closeModal} />
+        <IdModal isOpen={() => showModal} isClosed={()=> closeModal} />
         <Box className="w-[100%]">
           <Image src="/sm-cat.png" />
         </Box>
