@@ -10,7 +10,7 @@ import {
   useState,
 } from "react";
 import { useSearchParams } from "react-router-dom";
-import { createGetUser, OwnedCatType } from "../services/apiUsers";
+import { createGetUser, OwnedCatType, IUser } from "../services/apiUsers";
 
 type UserType = {
   name: string;
@@ -19,6 +19,7 @@ type UserType = {
   manxEarned: number;
   isLoading: boolean;
   ownedCats: OwnedCatType[];
+  user: IUser | undefined;
   setCoinsEarned: Dispatch<SetStateAction<number>>;
   setName: Dispatch<SetStateAction<string>>;
   setId: Dispatch<SetStateAction<number>>;
@@ -32,6 +33,7 @@ const userContext = createContext<UserType>({
   isLoading: true,
   manxEarned: 0,
   ownedCats: [],
+  user: undefined,
   setName() {},
   setId() {},
   setCoinsEarned() {},
@@ -43,10 +45,11 @@ function UserContext({ children }: { children: ReactNode }) {
   const [id, setId] = useState(0);
   const [coinsEarned, setCoinsEarned] = useState(0);
   const [manxEarned, setManxEarned] = useState(0);
-  const [params] = useSearchParams();
   const [isLoading, setIsLoading] = useState(true);
-  const referralId = params.get("referralId");
   const [ownedCats, setOwnedCats] = useState<OwnedCatType[]>([]);
+  const [user, setUser] = useState<IUser>();
+  const [params] = useSearchParams();
+  const referralId = params.get("referralId");
 
   useEffect(() => {
     const name = WebApp.initDataUnsafe.user?.first_name;
@@ -67,6 +70,7 @@ function UserContext({ children }: { children: ReactNode }) {
           setCoinsEarned(data.goldEarned);
           setManxEarned(data.manxEarned);
           setOwnedCats(data.ownedCats);
+          setUser(data);
         }
         setIsLoading(false);
       } catch (error) {
@@ -85,6 +89,7 @@ function UserContext({ children }: { children: ReactNode }) {
         coinsEarned,
         manxEarned,
         ownedCats,
+        user,
         setName,
         setId,
         setCoinsEarned,

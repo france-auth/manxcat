@@ -9,12 +9,18 @@ export type OwnedCatType = {
   numberOwned: number;
 };
 
-interface IUser {
+export type ReferralType = {
+  name: string;
+  earned: number;
+  referralCode: string;
+};
+
+export interface IUser {
   name: string;
   telegramId: number;
   manxEarned: number;
   goldEarned: number;
-  referrals: Array<string>;
+  referrals: ReferralType[];
   referralCode: string;
   referredBy: string;
   ownedCats: OwnedCatType[];
