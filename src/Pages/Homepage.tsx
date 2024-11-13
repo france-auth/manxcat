@@ -29,7 +29,7 @@ export default function Homepage() {
       bgRepeat={"no-repeat"}
       bgPosition={"center"}
       bgSize={"cover"}
-      minHeight={"100vh"}
+      minHeight={"screen"}
       alignItems={"center"}
     >
       <Flex
@@ -62,7 +62,7 @@ export default function Homepage() {
                   className="flex flex-col items-center gap-1"
                 >
                   <Image src="/calendar.png" />
-                  <Text fontWeight={"700"}>DAILY SIGNIN</Text>
+                  <Text className="font-bold text-[9px]">DAILY SIGNIN</Text>
                 </Link>
               </Box>
               <Box
@@ -74,7 +74,7 @@ export default function Homepage() {
               >
                 <Link to={"/"} className="flex flex-col items-center gap-1">
                   <Image src="/warehouse.png" />
-                  <Text fontWeight={"700"}>WAREHOUSE</Text>
+                  <Text className="font-bold text-[9px]">WAREHOUSE</Text>
                 </Link>
               </Box>
               <Box
@@ -87,7 +87,7 @@ export default function Homepage() {
               >
                 <Link to={"/"} className="flex flex-col items-center gap-1">
                   <Image src="/calendar.png" />
-                  <Text fontWeight={"700"}>AUTO</Text>
+                  <Text className="font-bold text-[9px]">AUTO</Text>
                 </Link>
               </Box>
             </Flex>
@@ -100,17 +100,17 @@ export default function Homepage() {
               </Box>
               <Link to={"/levels"}>
                 <Box className="flex justify-center items-center gap-1">
-                  <Image src="/levelcat-homepage.png" w={"31px"} h={"32px"} />
-                  <Text className="text-lg font-bold">Level 1</Text>
+                  <Image src="/levelcat-homepage.png" w={"25px"} h={"25px"} />
+                  <Text className="text-base font-bold">Level 1</Text>
                 </Box>
               </Link>
             </Box>
             <Flex
               flexDirection={"row"}
               display={"flex"}
-              className="border-[10px] border-[#EB8A90]  bg-[#EFD0CA] rounded-full p-5 justify-center items-center w-64 h-auto z-40"
+              className="border-[10px] border-[#EB8A90]  bg-[#EFD0CA] rounded-full p-5 justify-center items-center w-56 h-auto z-40"
             >
-              <Image src="/manx.png" className="w-full h-auto max-w-[97%]" />
+              <img src="/manx.png" className="w-44 h-40" alt="manx" />
             </Flex>
           </Box>
         </Box>

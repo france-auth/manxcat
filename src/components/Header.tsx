@@ -18,7 +18,7 @@ export default function Header() {
       alignItems={"center"}
       width={"full"}
       paddingX={"20px"}
-      paddingTop={"16px"}
+      paddingTop={"12px"}
     >
       <Box
         display={"flex"}
@@ -32,17 +32,16 @@ export default function Header() {
         className="cursor-pointer"
         onClick={openModal}
       >
-        <IdModal isOpen={() => showModal} isClosed={closeModal} />
+        <IdModal isOpen={showModal} isClosed={closeModal} />
         <Box className="w-[100%]">
           <Image src="/sm-cat.png" />
         </Box>
       </Box>
       <Flex
         display={"flex"}
-        flexDirection={"column"}
         justifyContent={"center"}
         alignItems={"end"}
-        gap={2}
+        gap={3}
       >
         <Flex
           alignItems={"center"}

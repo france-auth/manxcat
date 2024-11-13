@@ -2,6 +2,7 @@ import Button from "../components/ui/Button";
 import TaskCards from "../components/ui/TaskCards";
 import React, { useEffect, useState } from "react";
 import { getAllTasks, ITask } from "../services/apiTasks";
+import NavigationBar from "../components/NavigationBar";
 
 const Tasks = () => {
   const [tasks, setTasks] = useState<ITask[]>();
@@ -77,6 +78,7 @@ const Tasks = () => {
           <TaskCards tasks={tasks} />
         </div>
       </div>
+      <NavigationBar />
     </main>
   );
 };
