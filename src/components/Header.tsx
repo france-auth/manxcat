@@ -38,7 +38,6 @@ export default function Header() {
         </Box>
       </Box>
       <Flex
-        display={"flex"}
         justifyContent={"center"}
         alignItems={"end"}
         gap={3}
