@@ -115,25 +115,17 @@ export default function Homepage() {
           </Box>
         </Box>
         <Box
-          bgColor={"#EFD0CA80"}
           alignItems={"center"}
           display={"flex"}
           flexDirection={"column"}
           w={"100%"}
         >
-          <Text fontSize={"16px"} fontWeight={700}>
-            AVAILABLE tickets
-          </Text>
-          <Text mb={2} fontSize={"20px"} fontWeight={400} lineHeight={"32.9px"}>
-            01
-          </Text>
           <Button
             mb={3}
-            bgColor={"#EFD0CA"}
-            border={"4px solid #000807"}
+            bgColor={"#EB8A90"}
+            border={"3px solid #000807"}
             borderRadius={"500px"}
             w={"60%"}
-            h={"36px"}
             p={"16px 10px"}
             gap={4}
             fontSize={"12px"}
@@ -143,11 +135,10 @@ export default function Homepage() {
             <Image src="/play.png" />
           </Button>
           <Button
-            bgColor={"#EFD0CA"}
-            border={"5px solid #000807"}
+            bgColor={"#EB8A90"}
+            border={"3px solid #000807"}
             borderRadius={"500px"}
             w={"90%"}
-            h={"52px"}
             p={"16px 24px"}
             gap={4}
             fontSize={"12px"}
