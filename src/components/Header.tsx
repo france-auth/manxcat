@@ -38,8 +38,6 @@ export default function Header() {
         </Box>
       </Box>
       <Flex
-        display={"flex"}
-        flexDirection={"column"}
         justifyContent={"center"}
         alignItems={"end"}
         gap={2}

@@ -18,7 +18,7 @@ type IdModalProps = {
 import React from 'react'
 
 const IdModal: React.FC<IdModalProps> = ({isOpen, isClosed}) => {
-    return (!isOpen() ? null : (
+    return (!isOpen() && isClosed() ? null : (
         <div
             className='fixed inset-0 bg-[#EFD0CA] bg-opacity-40 backdrop-brightness-50 flex justify-center items-center z-[999] p-5'
             onClick={() => isClosed()}
