@@ -11,7 +11,7 @@ const IdModal = () => {
 export default IdModal; */
 
 type IdModalProps = {
-    isOpen: () => boolean | void;
+    isOpen: boolean ;
     isClosed: () => boolean | void;
 };
 
