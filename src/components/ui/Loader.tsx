@@ -25,12 +25,12 @@ const Loader = () => {
 
     return (!loading ? null : (
         <main className="loader">
-            <div className="">
-                <h1 className='font-extrabold text-3xl'>
+            <div className="mb-4">
+                <h1 className='font-extrabold text-4xl top-[150px]'>
                     MANX CAT
                 </h1>
             </div>
-            <div className="spinnerContainer p-5 rounded-full bg-[#EB8A90]">
+            <div className="spinnerContainer p-5 rounded-full bg-[#EFD0CA] mb-12">
                 <div className="spinner"></div>
                 <img
                     className="centerImage"
