@@ -9,20 +9,26 @@ export type OwnedCatType = {
   numberOwned: number;
 };
 
-interface IUser {
+export type ReferralType = {
+  name: string;
+  earned: number;
+  referralCode: string;
+};
+
+export interface IUser {
   name: string;
   telegramId: number;
   manxEarned: number;
   goldEarned: number;
-  referrals: Array<string>;
+  referrals: ReferralType[];
   referralCode: string;
   referredBy: string;
   ownedCats: OwnedCatType[];
+  completedTasks: Array<string>;
 }
 
-const token = storage();
-
 async function getAllUsers() {
+  const token = storage();
   try {
     const resp = await axios.get(BASE_URL, {
       headers: {
@@ -65,6 +71,7 @@ async function createGetUser({
 }
 
 async function getUser(telegramId: number): Promise<IUser> {
+  const token = storage();
   const resp = await axios.get(`${BASE_URL}/${telegramId}`, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -83,6 +90,7 @@ type FarmType = {
 };
 
 async function farm(telegramId: number): Promise<FarmType> {
+  const token = storage();
   const resp = await axios.post(
     `${BASE_URL}/farm/${telegramId}`,
     {},
@@ -92,6 +100,7 @@ async function farm(telegramId: number): Promise<FarmType> {
 }
 
 async function startFarm(telegramId: number): Promise<FarmType> {
+  const token = storage();
   const resp = await axios.post(
     `${BASE_URL}/farm/start/${telegramId}`,
     {},
@@ -102,6 +111,7 @@ async function startFarm(telegramId: number): Promise<FarmType> {
 }
 
 async function claimFarmRewards(telegramId: number): Promise<FarmType> {
+  const token = storage();
   const resp = await axios.post(
     `${BASE_URL}/farm/claim/${telegramId}`,
     {},
@@ -117,6 +127,7 @@ type DailyRewards = {
 };
 
 async function updateDailyRewards(telegramId: number): Promise<DailyRewards> {
+  const token = storage();
   const resp = await axios.post(
     `${BASE_URL}/daily/${telegramId}`,
     {},
@@ -127,6 +138,7 @@ async function updateDailyRewards(telegramId: number): Promise<DailyRewards> {
 }
 
 async function resetDailyRewards(telegramId: number): Promise<DailyRewards> {
+  const token = storage();
   const resp = await axios.post(
     `${BASE_URL}/daily/reset/${telegramId}`,
     {},

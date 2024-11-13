@@ -6,8 +6,10 @@ import { useUserContext } from "../context/UserContext";
 const Shop = () => {
   const [cats, setCats] = useState<CatType[]>();
   const [isLoading, setIsLoading] = useState(true);
+  const [isPurchasing, setIsPurchasing] = useState(false);
+  const [currCatId, setCurrCatId] = useState("");
 
-  const { id, ownedCats } = useUserContext();
+  const { id, ownedCats, coinsEarned, setCoinsEarned } = useUserContext();
   const toast = useToast();
 
   useEffect(() => {
@@ -27,19 +29,40 @@ const Shop = () => {
   }, []);
 
   async function handlePurchaseCat(catId: string) {
+    const choosenCat = cats?.find((cat) => cat._id == catId);
+
+    if (coinsEarned < Number(choosenCat?.price))
+      return toast({
+        title: "Insufficient gold coins to purchase cat",
+        colorScheme: "orange",
+        position: "top",
+      });
+
+    const own = ownedCats.find((ownedCat) => ownedCat.catId == catId);
+    if (own?.numberOwned == choosenCat?.maxPurchase)
+      return toast({
+        title: "Max purchase reached",
+        colorScheme: "orange",
+        position: "top",
+      });
     try {
+      setIsPurchasing(true);
+      setCurrCatId(catId);
       const message = await buyCat(id, catId);
       toast({
         title: message,
         position: "top",
         colorScheme: "green",
       });
+      setCoinsEarned((earned) => earned - Number(choosenCat?.price));
     } catch {
       toast({
         title: `Error purchasing cat`,
         position: "top",
         colorScheme: "red",
       });
+    } finally {
+      setIsPurchasing(false);
     }
   }
 
@@ -127,8 +150,17 @@ const Shop = () => {
                           bg={"#efd0ca"}
                           textColor={"#000807"}
                           onClick={() => handlePurchaseCat(_id)}
+                          disabled={isPurchasing}
                         >
-                          BUY - {price.toLocaleString()}
+                          {currCatId == _id ? (
+                            isPurchasing ? (
+                              <Spinner />
+                            ) : (
+                              ` BUY - ${price.toLocaleString()}`
+                            )
+                          ) : (
+                            ` BUY - ${price.toLocaleString()}`
+                          )}
                         </Button>
                         <Text textAlign={"right"} fontWeight={"semibold"}>
                           <Text as={"span"} mr={2}>

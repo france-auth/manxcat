@@ -4,4 +4,7 @@ function storage() {
   return token;
 }
 
-export { storage };
+const sleep = (time: number) =>
+  new Promise((resolve) => setTimeout(resolve, time));
+
+export { storage, sleep };
