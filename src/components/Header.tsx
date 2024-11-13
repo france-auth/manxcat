@@ -1,12 +1,23 @@
-import React from "react";
-import { Box, Flex, Icon, Image, Text, useDisclosure } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Box, Flex, Icon, Image, Text } from "@chakra-ui/react";
 import { FaPlus } from "react-icons/fa6";
 import { useUserContext } from "../context/UserContext";
 import IdModal from "./IdModal";
 
 export default function Header() {
   const { coinsEarned, manxEarned } = useUserContext();
- const {isOpen, onClose, onOpen} = useDisclosure()
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsOpen(true);
+    console.log("Modal opened");
+  };
+
+  const handleClose = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent event from bubbling up to parent elements
+    setIsOpen(false);
+    console.log("Modal closed");
+  };
 
   return (
     <Box
@@ -27,19 +38,14 @@ export default function Header() {
         p={"10px"}
         w={"80px"}
         className="cursor-pointer"
-        onClick={onOpen}
+        onClick={handleOpen}
       >
-
-        <IdModal isOpen={isOpen} isClosed={onClose} />
+        {isOpen && <IdModal isOpen={isOpen} isClosed={handleClose} />}
         <Box className="w-[100%]">
           <Image src="/sm-cat.png" />
         </Box>
       </Box>
-      <Flex
-        justifyContent={"center"}
-        alignItems={"end"}
-        gap={3}
-      >
+      <Flex justifyContent={"center"} alignItems={"end"} gap={3}>
         <Flex
           alignItems={"center"}
           gap={2}
