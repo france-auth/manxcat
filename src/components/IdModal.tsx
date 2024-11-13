@@ -16,16 +16,17 @@ type IdModalProps = {
 };
 
 import React from 'react'
+import { CloseIcon, Icon } from '@chakra-ui/icons';
 
 const IdModal: React.FC<IdModalProps> = ({isOpen, isClosed}) => {
-    return (!isOpen() && isClosed() ? null : (
+    return (!isOpen() ? null : (
         <div
             className='fixed inset-0 bg-[#EFD0CA] bg-opacity-40 backdrop-brightness-50 flex justify-center items-center z-[999] p-5'
             onClick={() => isClosed()}
         >
             <div className='flex flex-col bg-[#EFD0CA] rounded-3xl p-4 w-full'>
                 <div className='flex justify-between mt-3 mb-1 items-center'>
-            
+                    <Icon as={CloseIcon } boxSize={6} />
                 </div>
                 <div className='mx-3 text-[14.5px]'>
                         <p
