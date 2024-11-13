@@ -24,7 +24,7 @@ const IdModal: React.FC<IdModalProps> = ({isOpen, isClosed}) => {
         <div className="flex flex-col bg-[#EFD0CA] rounded-3xl p-4 w-full">
           <div
             className="flex justify-end mt-3 mb-1 items-center "
-            onClick={isClosed}
+            onClick={()=>isClosed()}
           >
             <Icon as={CloseIcon} boxSize={4} />
           </div>
