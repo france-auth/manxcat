@@ -1,9 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { completeTask, ITask } from "../../services/apiTasks";
+import { completeTask, ITask, TaskType } from "../../services/apiTasks";
 import { useUserContext } from "../../context/UserContext";
 import { Spinner, useToast } from "@chakra-ui/react";
-
-const TaskButton = ({ taskId }: { taskId: string }) => {
+import WebApp from "@twa-dev/sdk";
+import { sleep } from "../../utils/helpers";
+const TaskButton = ({
+  taskId,
+  url,
+  taskType,
+}: {
+  taskId: string;
+  url: string;
+  taskType: TaskType;
+}) => {
   const { id, user } = useUserContext();
   const toast = useToast();
 
@@ -24,9 +33,17 @@ const TaskButton = ({ taskId }: { taskId: string }) => {
     if (completedTasks == undefined) return setIsLoading(true);
     try {
       setIsLoading(true);
+
+      if (taskType == "telegram") {
+        WebApp.openTelegramLink(url);
+      } else {
+        WebApp.openLink(url, { try_instant_view: false });
+      }
+
+      await sleep(3000);
+
       await completeTask(id, taskId);
 
-      console.log({ taskId });
       toast({
         title: "Task completed successfully",
         position: "top",
@@ -68,7 +85,7 @@ const TaskCards = ({ tasks }: { tasks: ITask[] | undefined }) => {
   return (
     <div className="w-full flex flex-col items-center">
       <div className="w-full">
-        {tasks?.map(({ title, reward, _id }) => (
+        {tasks?.map(({ title, reward, _id, url, type }) => (
           <div
             key={_id}
             className={`cards flex my-3 p-3 justify-between bg-[#EFD0CA80] 
@@ -96,7 +113,7 @@ const TaskCards = ({ tasks }: { tasks: ITask[] | undefined }) => {
               </div>
             </div>
             <div className="flex items-center">
-              <TaskButton taskId={_id} />
+              <TaskButton taskId={_id} url={url} taskType={type} />
             </div>
           </div>
         ))}

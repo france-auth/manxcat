@@ -3,7 +3,7 @@ import { storage } from "../utils/helpers";
 
 const BASE_URL = "http://localhost:3000/api/v1/tasks";
 
-type TaskType = "telegram" | "twitter" | "web" | "others";
+export type TaskType = "telegram" | "twitter" | "web" | "others";
 
 export interface ITask {
   _id: string;
