@@ -13,7 +13,7 @@ const IdModal: React.FC<IdModalProps> = ({isOpen, isClosed}) => {
     return !isOpen ? null : (
       <div className="fixed inset-0 bg-[#EFD0CA] bg-opacity-40 backdrop-brightness-50 flex justify-center items-center z-[999] p-5">
         <div className="flex flex-col bg-[#EFD0CA] rounded-3xl p-4 w-full gap-5">
-          <div className="flex justify-end" onClick={isClosed}>
+          <div className="flex justify-end" onClick={()=>isClosed()}>
             <Icon as={CloseIcon} boxSize={4} />
           </div>
           <div className="flex justify-center mt-3 items-center gap-5">
