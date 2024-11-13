@@ -1,7 +1,7 @@
 
 type IdModalProps = {
-    isOpen: boolean;
-    isClosed: () => void;
+    isOpen: boolean ;
+    isClosed: () => boolean | void;
 };
 
 import React from 'react'
