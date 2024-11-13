@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import { Box, Flex, Icon, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Icon, Image, Text, useDisclosure } from "@chakra-ui/react";
 import { FaPlus } from "react-icons/fa6";
 import { useUserContext } from "../context/UserContext";
 import IdModal from "./IdModal";
 
 export default function Header() {
   const { coinsEarned, manxEarned } = useUserContext();
-  const [showModal, setShowModal] = useState<boolean>(false);
-
-  const openModal = () => setShowModal(true);
-  const closeModal = () => setShowModal(false);
+ const {isOpen, onClose, onOpen} = useDisclosure()
 
   return (
     <Box
@@ -30,9 +27,9 @@ export default function Header() {
         p={"10px"}
         w={"80px"}
         className="cursor-pointer"
-        onClick={openModal}
+        onClick={onOpen}
       >
-        <IdModal isOpen={() => showModal} isClosed={()=> closeModal} />
+        <IdModal isOpen={isOpen} isClosed={onClose} />
         <Box className="w-[100%]">
           <Image src="/sm-cat.png" />
         </Box>
