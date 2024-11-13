@@ -19,11 +19,11 @@ const NavItem: React.FC<NavItemProps> = ({
 }) => (
     <Link to={to}>
         <Box
-        className={`flex flex-col w-[65.4px] h-[80px] items-center justify-center ${ 
+        className={`flex flex-col w-[65.4px] p-2 items-center justify-center ${ 
             isActive ? "bgradient border-[1px] border-[#EB8A90]" : ""}`}
         >
             {icon}
-            <span className="mt-1 text-xs">{label}</span>
+            <span className="mt-1 text-[9.5px] font-extrabold">{label}</span>
         </Box>
     </Link>
 )
@@ -37,7 +37,6 @@ const NavigationBar: React.FC = () => {
             bgColor={'#EFD0CA'}
             width={'100%'}
             display={'flex'}
-            height={'80px'}
             alignItems={'center'}
             justifyContent={'center'}
             position={'fixed'}
@@ -47,7 +46,7 @@ const NavigationBar: React.FC = () => {
         >
                 <NavItem 
                     icon={
-                        <Image src="/home.png"/>
+                        <Image src="/home.png" className="w-6 h-auto"/>
                     }
                     label="HOME"
                     isActive={location.pathname === "/"}
@@ -55,7 +54,7 @@ const NavigationBar: React.FC = () => {
                 />
                 <NavItem 
                     icon={
-                        <Image src="/task.png"/>
+                        <Image src="/task.png" className="w-6 h-auto"/>
                     }
                     label="TASKS"
                     isActive={location.pathname === "/tasks"}
@@ -63,15 +62,15 @@ const NavigationBar: React.FC = () => {
                 />
                 <NavItem 
                     icon={
-                        <Image src="/shop.png"/>
+                        <Image src="/shop.png" className="w-6 h-auto"/>
                     }
                     label="SPIN"
-                    isActive={location.pathname === "/shop"}
+                    isActive={location.pathname === "/spin"}
                     to="/spin"
                 />
                 <NavItem 
                     icon={
-                        <Image src="/people.png"/>
+                        <Image src="/people.png" className="w-6 h-auto"/>
                     }
                     label="FRIENDS"
                     isActive={location.pathname === "/friends"}
@@ -79,7 +78,7 @@ const NavigationBar: React.FC = () => {
                 />
                 <NavItem 
                     icon={
-                        <Image src="/people.png"/>
+                        <Image src="/people.png" className="w-6 h-auto"/>
                     }
                     label="WALLET"
                     isActive={location.pathname === "/wallet"}

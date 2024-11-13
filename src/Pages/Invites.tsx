@@ -2,6 +2,7 @@ import React from "react";
 import InviteButton from "../components/ui/InviteButton";
 import { useUserContext } from "../context/UserContext";
 import { useToast } from "@chakra-ui/react";
+import NavigationBar from "../components/NavigationBar";
 
 interface InviteFriendsProps {
   bigcoin: string;
@@ -116,6 +117,7 @@ const Invites = () => {
           </div>
         </div>
       </div>
+      <NavigationBar />
     </main>
   );
 };

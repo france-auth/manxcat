@@ -88,7 +88,7 @@ function App() {
         <Route path="/swap" element={<SwapCoin />} />
         <Route path="/daily-signin" element={<DailySignIn />} />
         <Route path="/levels" element={<Shop />} />
-        <Route path="/id" element={<IdModal isOpen={() => showModal} isClosed={closeModal} />} />
+        <Route path="/id" element={<IdModal isOpen={showModal} isClosed={closeModal} />} />
       </Routes>
     </Box>
   );

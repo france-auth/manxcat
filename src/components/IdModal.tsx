@@ -1,14 +1,3 @@
-/* import React from "react";
-
-const IdModal = () => {
-    return (
-        <main className="fixed w-full p-5 bg-[#EFD0CA]">
-            <div></div>
-        </main>
-    )
-};
-
-export default IdModal; */
 
 type IdModalProps = {
     isOpen: boolean ;
@@ -16,30 +5,46 @@ type IdModalProps = {
 };
 
 import React from 'react'
-import { CloseIcon, Icon } from '@chakra-ui/icons';
+import CustomDropdown from './Dropdown';
 
 const IdModal: React.FC<IdModalProps> = ({isOpen, isClosed}) => {
-    return !isOpen ? null : (
-      <div className="fixed inset-0 bg-[#EFD0CA] bg-opacity-40 backdrop-brightness-50 flex justify-center items-center z-[999] p-5">
-        <div className="flex flex-col bg-[#EFD0CA] rounded-3xl p-4 w-full">
-          <div
-            className="flex justify-end mt-3 mb-1 items-center "
+    return (!isOpen ? null : (
+        <div
+            className='fixed inset-0 bg-[#EFD0CA] bg-opacity-40 backdrop-brightness-50 flex justify-center items-center z-[999] p-5'
             onClick={isClosed}
-          >
-            <Icon as={CloseIcon} boxSize={4} />
-          </div>
-          <div className="mx-3 text-[14.5px]">
-            <p className="my-3 flex justify-center">
-              Grow your bond with your Soul by petting and chatting, and gifting
-              items.
-            </p>
-            <p className="mb-2">
-              As you build affection, you'll earn more points. Who knows? Higher
-              affection might bring some nice surprises your way!
-            </p>
-          </div>
+        >
+            <div className='flex flex-col bg-[#EFD0CA] rounded-3xl p-4 w-full gap-5'>
+                <div className='flex justify-center mt-3 items-center gap-5'>
+                    <div className="flex rounded-full bg-[#EB8A90] p-2">
+                        <img 
+                            src="/headercat-modal.svg"  alt="header cat"
+                        />
+                    </div>
+                    <p className='font-bold text-lg'>ID: 1889676545</p>
+                </div>
+                <div className='flex justify-evenly items-center'>
+                    <div className="flex gap-2">
+                        <div className='rounded-full p-2 bg-[#EB8A90]'>
+                            <img 
+                                src="/volume.svg"
+                                alt="volume button" 
+                                className='w-6 h-auto'
+                            />
+                        </div>
+                        <div className='rounded-full p-2 bg-[#EB8A90]'>
+                            <img 
+                                src="/music-note.svg"
+                                alt="music note button" 
+                                className='w-6 h-auto'
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <CustomDropdown />
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    );
+    ))
 }
 export default IdModal

@@ -4,6 +4,7 @@ import ButtoN from "../components/ui/Button"
 import { useState } from "react"
 import ChooseExchange from "./ChooseExchange";
 import { Link } from "react-router-dom";
+import NavigationBar from "../components/NavigationBar";
 
 interface Operations {
   name: string
@@ -209,6 +210,7 @@ const Wallet = () => {
           </div>
         </div>
       </>)}
+      <NavigationBar />
     </main>
   )
 }
