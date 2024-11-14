@@ -33,6 +33,7 @@ async function getAllUsers() {
     const resp = await axios.get(BASE_URL, {
       headers: {
         Authorization: `Bearer ${token}`,
+        "ngrok-skip-browser-warning":  true,
       },
     });
     console.log(resp);
@@ -76,6 +77,7 @@ async function getUser(telegramId: number): Promise<IUser> {
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
+      "ngrok-skip-browser-warning":  true,
     },
   });
   return resp.data.data;

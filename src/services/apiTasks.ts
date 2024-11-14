@@ -20,6 +20,7 @@ async function getAllTasks() {
   const resp = await axios.get(BASE_URL, {
     headers: {
       Authorization: `Bearer ${token}`,
+      "ngrok-skip-browser-warning":  true,
     },
   });
   console.log(resp.data);
