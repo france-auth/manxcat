@@ -1,7 +1,7 @@
 import axios from "axios";
 import { storage } from "../utils/helpers";
 
-const BASE_URL = "https://ae7f-102-89-45-111.ngrok-free.app/api/v1/tasks";
+const BASE_URL = "http://localhost:3000/api/v1/tasks";
 
 export type TaskType = "telegram" | "twitter" | "web" | "others";
 
@@ -20,7 +20,7 @@ async function getAllTasks() {
   const resp = await axios.get(BASE_URL, {
     headers: {
       Authorization: `Bearer ${token}`,
-      "ngrok-skip-browser-warning":  true,
+      "ngrok-skip-browser-warning": true,
     },
   });
   console.log(resp.data);

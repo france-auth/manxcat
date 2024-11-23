@@ -1,42 +1,66 @@
-
-import React, { useState, } from "react";
-import { Box, Button, Flex } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Box, Button, Flex, useToast } from "@chakra-ui/react";
 import { Wheel } from "react-custom-roulette";
+import { spinWheel } from "../services/apiUsers";
+import { useUserContext } from "../context/UserContext";
 
 const data = [
-  { option: "MANX" },
-  { option: "400" },
-  { option: "USDT" },
-  { option: "500" },
+  { option: "MANX", prob: 8, prize: 2 },
+  { option: "400", prob: 35, prize: 400 },
+  { option: "USDT", prob: 2, prize: 1 },
   {
-    option: "",
-    image: { uri: "/coin.png", offsetY: 180, sizeMultiplier: 0.5 },
+    option: "500",
+    prob: 27,
+    prize: 500,
   },
-  { option: "600" },
-  { option: "700" },
-  { option: "800" },
+  {
+    option: "image",
+    image: { uri: "/coin.png", offsetY: 180, sizeMultiplier: 0.5 },
+    prob: 5,
+    prize: 4,
+  },
+  { option: "600", prob: 14, prize: 600 },
+  { option: "700", prob: 5, prize: 700 },
+  { option: "800", prob: 4, prize: 800 },
 ];
-
-
 
 export default function Spinwheel() {
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
 
+  const { id, tickets, setTickets, setCoinsEarned, setManxEarned } =
+    useUserContext();
 
-
+  const toast = useToast();
 
   const handleSpinClick = async () => {
     if (!mustSpin) {
-      const newPrizeNumber = Math.floor(Math.random() * data.length);
-      setPrizeNumber(newPrizeNumber);
-      setMustSpin(true);
+      if (tickets == 0)
+        return toast({
+          title: "You do not have enough tickets",
+          colorScheme: "orange",
+          position: "top",
+        });
+      try {
+        const resp = await spinWheel(id);
+
+        const prize = data.find((_, index) => resp.prizeIndex == index);
+
+        setPrizeNumber(resp.prizeIndex);
+        setMustSpin(true);
+        setTickets((curr) => curr - 1);
+        if (prize?.option !== "USDT" && prize?.option !== "MANX") {
+          setCoinsEarned((curr) => curr + Number(prize?.prize));
+        }
+
+        if (prize?.option == "MANX" || prize?.option == "image") {
+          setManxEarned((curr) => curr + prize.prize);
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
-  }
-
-
-
-
+  };
 
   return (
     <Box
@@ -48,7 +72,6 @@ export default function Spinwheel() {
       alignItems={"center"}
       textColor={"white"}
       overflowY={"hidden"}
-     
     >
       <Flex
         width={"100%"}
@@ -118,7 +141,7 @@ export default function Spinwheel() {
 
         <div className="text-[#000807] flex flex-col items-center bg-[#EFD0CA80] w-full py-4 gap-2">
           <p className="text-xs font-medium">AVAILABLE SPIN</p>
-          <p className="text-xl font-extrabold">01</p>
+          <p className="text-xl font-extrabold">{tickets}</p>
           <p className="text-xs font-medium">WATCH ADS TO GET MORE SPINS</p>
           <Button
             bgColor={"#EFD0CA"}

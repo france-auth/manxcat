@@ -51,7 +51,7 @@ const Invites = () => {
   };
   return (
     <main className="apply_page-style">
-      <div className="flex flex-col items-center px-5 space-y-3">
+      <div className="flex flex-col items-center px-5 space-y-3 mb-12">
         <div className="mt-5">
           <h1 className="text-center font-extrabold text-4xl mb-3 text-[#fefeff]">
             {invites} FRIENDS

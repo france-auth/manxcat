@@ -1,7 +1,7 @@
 import axios from "axios";
 import { storage } from "../utils/helpers";
 
-const BASE_URL = "https://ae7f-102-89-45-111.ngrok-free.app/api/v1/cats";
+const BASE_URL = "http://localhost:3000/api/v1/cats";
 
 export type CatType = {
   _id: string;
@@ -22,7 +22,7 @@ async function getCats(): Promise<{ data: CatType[]; dataLength: number }> {
   const resp = await axios.get(BASE_URL, {
     headers: {
       Authorization: `Bearer ${token}`,
-      "ngrok-skip-browser-warning":  true,
+      "ngrok-skip-browser-warning": true,
     },
   });
   return { data: resp.data.data, dataLength: resp.data.nbHits };
@@ -34,7 +34,7 @@ async function getCat(userId: number, catId: string): Promise<CatType> {
   const resp = await axios.get(`${BASE_URL}/${userId}/${catId}`, {
     headers: {
       Authorization: `Bearer ${token}`,
-      "ngrok-skip-browser-warning":  true,
+      "ngrok-skip-browser-warning": true,
     },
   });
   return resp.data.data;

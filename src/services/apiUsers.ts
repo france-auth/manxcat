@@ -1,7 +1,7 @@
 import axios from "axios";
 import { storage } from "../utils/helpers";
 
-const BASE_URL = "https://ae7f-102-89-45-111.ngrok-free.app/api/v1/users";
+const BASE_URL = "http://localhost:3000/api/v1/users";
 
 export type OwnedCatType = {
   catId: string;
@@ -25,6 +25,7 @@ export interface IUser {
   referredBy: string;
   ownedCats: OwnedCatType[];
   completedTasks: Array<string>;
+  tickets: number;
 }
 
 async function getAllUsers() {
@@ -33,7 +34,7 @@ async function getAllUsers() {
     const resp = await axios.get(BASE_URL, {
       headers: {
         Authorization: `Bearer ${token}`,
-        "ngrok-skip-browser-warning":  true,
+        "ngrok-skip-browser-warning": true,
       },
     });
     console.log(resp);
@@ -77,7 +78,7 @@ async function getUser(telegramId: number): Promise<IUser> {
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
-      "ngrok-skip-browser-warning":  true,
+      "ngrok-skip-browser-warning": true,
     },
   });
   return resp.data.data;
@@ -150,6 +151,46 @@ async function resetDailyRewards(telegramId: number): Promise<DailyRewards> {
   return resp.data;
 }
 
+// auto farm
+async function startAutoFarming(
+  telegramId: number
+): Promise<{ started: boolean; message: string }> {
+  const token = storage();
+  const resp = await axios.post(
+    `${BASE_URL}/auto/start/${telegramId}`,
+    {},
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
+
+  return resp.data;
+}
+
+// get current status
+async function getAutoFarmUpdate(
+  telegramId: number
+): Promise<{ started: boolean; message: string; earned: number }> {
+  const token = storage();
+  const resp = await axios.post(
+    `${BASE_URL}/auto/${telegramId}`,
+    {},
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
+
+  return resp.data;
+}
+
+// spin
+async function spinWheel(telegramId: number): Promise<{ prizeIndex: number }> {
+  const token = storage();
+  const resp = await axios.post(
+    `${BASE_URL}/spin/${telegramId}`,
+    {},
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
+
+  return resp.data;
+}
+
 export {
   getAllUsers,
   createGetUser,
@@ -158,4 +199,7 @@ export {
   startFarm,
   updateDailyRewards,
   resetDailyRewards,
+  startAutoFarming,
+  getAutoFarmUpdate,
+  spinWheel,
 };

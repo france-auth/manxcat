@@ -30,7 +30,7 @@ const Tasks = () => {
           <p className="text-center text-sm">Complete tasks to earn $MANX</p>
         </div>
       </div>
-      <div className="flex flex-col mt-3">
+      <div className="flex flex-col mt-3 mb-10">
         <div className="flex flex-col items-center px-7 py-3 cards space-y-5">
           <p className="uppercase font-semibold text-xs">
             complete every 3 tasks to get a ticket

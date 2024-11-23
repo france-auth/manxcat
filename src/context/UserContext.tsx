@@ -24,6 +24,9 @@ type UserType = {
   setName: Dispatch<SetStateAction<string>>;
   setId: Dispatch<SetStateAction<number>>;
   setManxEarned: Dispatch<SetStateAction<number>>;
+
+  tickets: number;
+  setTickets: Dispatch<SetStateAction<number>>;
 };
 
 const userContext = createContext<UserType>({
@@ -38,6 +41,9 @@ const userContext = createContext<UserType>({
   setId() {},
   setCoinsEarned() {},
   setManxEarned() {},
+
+  tickets: 0,
+  setTickets() {},
 });
 
 function UserContext({ children }: { children: ReactNode }) {
@@ -47,6 +53,7 @@ function UserContext({ children }: { children: ReactNode }) {
   const [manxEarned, setManxEarned] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [ownedCats, setOwnedCats] = useState<OwnedCatType[]>([]);
+  const [tickets, setTickets] = useState(0);
   const [user, setUser] = useState<IUser>();
   const [params] = useSearchParams();
   const referralId = params.get("referralId");
@@ -70,6 +77,7 @@ function UserContext({ children }: { children: ReactNode }) {
           setCoinsEarned(data.goldEarned);
           setManxEarned(data.manxEarned);
           setOwnedCats(data.ownedCats);
+          setTickets(data.tickets);
           setUser(data);
         }
         setIsLoading(false);
@@ -94,6 +102,9 @@ function UserContext({ children }: { children: ReactNode }) {
         setId,
         setCoinsEarned,
         setManxEarned,
+
+        tickets,
+        setTickets,
       }}
     >
       {children}

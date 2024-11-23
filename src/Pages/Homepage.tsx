@@ -1,14 +1,30 @@
-import React from "react";
-import "../index.css"
-import { Box, Button, Flex, Image, Spinner, Text } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import "../index.css";
+import {
+  Box,
+  Button,
+  Flex,
+  Image,
+  Spinner,
+  Text,
+  useToast,
+} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import NavigationBar from "../components/NavigationBar";
 import { useFarm } from "../hooks/useFarm";
 import { useUserContext } from "../context/UserContext";
-import Loader from "../components/ui/Loader"; 
+import Loader from "../components/ui/Loader";
+import { getAutoFarmUpdate, startAutoFarming } from "../services/apiUsers";
+
 export default function Homepage() {
-  const { isLoading: initializing, manxEarned } = useUserContext();
+  const {
+    isLoading: initializing,
+    manxEarned,
+    id,
+    setManxEarned,
+    ownedCats,
+  } = useUserContext();
   const {
     isLoading,
     startFarming,
@@ -20,6 +36,45 @@ export default function Homepage() {
     farming,
   } = useFarm();
 
+  const [autoActive, setAutoActive] = useState(false);
+
+  const toast = useToast();
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      getCurrentAutoFarmStatus();
+    }, 1000);
+
+    async function getCurrentAutoFarmStatus() {
+      try {
+        const resp = await getAutoFarmUpdate(id);
+        setManxEarned(resp.earned);
+        setAutoActive(resp.started);
+      } catch (error) {
+        console.log(error);
+        clearInterval(intervalId);
+      }
+    }
+
+    return () => clearInterval(intervalId);
+  }, [id, setManxEarned, autoActive]);
+
+  async function startAuto() {
+    if (autoActive) return;
+    if (ownedCats.length == 0)
+      return toast({
+        title: "Please buy a cat to start mining",
+        colorScheme: "orange",
+        position: "top",
+      });
+    try {
+      await startAutoFarming(id);
+      setAutoActive(true);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   if (initializing) return <Loader />;
   return (
     <Box
@@ -30,7 +85,7 @@ export default function Homepage() {
       bgRepeat={"no-repeat"}
       bgPosition={"center"}
       bgSize={"cover"}
-      minHeight={"screen"}
+      height={"100vh"}
       alignItems={"center"}
     >
       <Flex
@@ -40,7 +95,6 @@ export default function Homepage() {
         pb={24}
         gap={5}
         alignItems={"center"}
-        justifyContent={"center"}
       >
         <Header />
         <Box display={"flex"} alignItems={"center"} justifyContent={"center"}>
@@ -86,10 +140,21 @@ export default function Homepage() {
                 display={"flex"}
                 flexDirection={"column"}
               >
-                <Link to={"/"} className="flex flex-col items-center gap-1">
-                  <Image src="/calendar.png" />
-                  <Text className="font-bold text-[9px]">AUTO</Text>
-                </Link>
+                <Box
+                  className="flex flex-col items-center gap-1"
+                  onClick={startAuto}
+                >
+                  <Image src="/console.png" />
+                  <Flex align={"center"} gap={"1"}>
+                    <Text className="font-bold text-[9px]">AUTO</Text>
+                    <Box
+                      background={`${autoActive ? "green.500" : "gray.500"}`}
+                      height={"2"}
+                      width={"2"}
+                      rounded={"full"}
+                    ></Box>
+                  </Flex>
+                </Box>
               </Box>
             </Flex>
             <Box className="flex flex-col justify-center items-center gap-2">
@@ -135,38 +200,54 @@ export default function Homepage() {
             WATCH ADS
             <Image src="/play.png" />
           </Button>
-          <Button
-            bgColor={"#EB8A90"}
-            border={"3px solid #000807"}
-            borderRadius={"500px"}
-            w={"90%"}
-            p={"16px 24px"}
-            gap={4}
-            fontSize={"12px"}
-            fontWeight={"400"}
-            disabled={ended ? false : farming}
-            onClick={ended ? claimRewards : startFarming}
-          >
-            {isLoading ? (
-              <Spinner />
-            ) : farming ? (
-              ended ? (
-                "Claim Rewards"
+          {autoActive ? (
+            <Button
+              bgColor={"#EB8A90"}
+              border={"3px solid #000807"}
+              borderRadius={"500px"}
+              w={"90%"}
+              p={"16px 24px"}
+              gap={4}
+              fontSize={"12px"}
+              fontWeight={"400"}
+              disabled={autoActive}
+            >
+              Auto farm bot activated...
+            </Button>
+          ) : (
+            <Button
+              bgColor={"#EB8A90"}
+              border={"3px solid #000807"}
+              borderRadius={"500px"}
+              w={"90%"}
+              p={"16px 24px"}
+              gap={4}
+              fontSize={"12px"}
+              fontWeight={"400"}
+              disabled={ended ? false : farming}
+              onClick={ended ? claimRewards : startFarming}
+            >
+              {isLoading ? (
+                <Spinner />
+              ) : farming ? (
+                ended ? (
+                  "Claim Rewards"
+                ) : (
+                  "Farming..."
+                )
               ) : (
-                "Farming..."
-              )
-            ) : (
-              "Farm"
-            )}
-            {farming && (
-              <>
-                <Text>
-                  {earned?.toFixed(3)} of {maxEarning}
-                </Text>
-                <Text>{totalHrs && totalHrs * 60}MIN</Text>
-              </>
-            )}
-          </Button>
+                "Farm"
+              )}
+              {farming && (
+                <>
+                  <Text>
+                    {earned?.toFixed(3)} of {maxEarning}
+                  </Text>
+                  <Text>{totalHrs && totalHrs * 60}MIN</Text>
+                </>
+              )}
+            </Button>
+          )}
         </Box>
       </Flex>
       <NavigationBar />
