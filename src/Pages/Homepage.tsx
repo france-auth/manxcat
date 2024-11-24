@@ -14,12 +14,12 @@ import Header from "../components/Header";
 import NavigationBar from "../components/NavigationBar";
 import { useFarm } from "../hooks/useFarm";
 import { useUserContext } from "../context/UserContext";
-import Loader from "../components/ui/Loader";
+//import Loader from "../components/ui/Loader";
 import { getAutoFarmUpdate, startAutoFarming } from "../services/apiUsers";
 
 export default function Homepage() {
   const {
-    isLoading: initializing,
+    //isLoading: initializing,
     manxEarned,
     id,
     setManxEarned,
@@ -75,7 +75,7 @@ export default function Homepage() {
     }
   }
 
-  if (initializing) return <Loader />;
+  //if (initializing) return <Loader />;
   return (
     <Box
       display={"flex"}
